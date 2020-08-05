@@ -78,10 +78,10 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import Home from '../Home';
- import CustomRoom from '../customroom';
- import Favorite from '../favorite';
- import Profile from '../profile';
+import CustomRoom from '../customroom';
+import Favorite from '../favorite';
+import Profile from '../profile';
+import { HomeStackScreen } from "./StackNavigators"
 
 const Tab = createBottomTabNavigator();
 
@@ -95,7 +95,7 @@ export default function MyTabs() {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStackScreen}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
@@ -107,7 +107,7 @@ export default function MyTabs() {
         name="CustomRoom"
         component={CustomRoom}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Updtes',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="bell" color={color} size={size} />
           ),
