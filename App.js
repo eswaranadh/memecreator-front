@@ -4,14 +4,17 @@ import React from 'react';
 import Header from './components/shared/Header';
 import { NavigationContainer } from '@react-navigation/native';
 import MyTabs from './components/shared/BotttomNavigator';
+import DataContextProvider from "./context/reducer"
+import { initializeAxios } from "./context/shared/APIKit"
 export default function App() {
+  initializeAxios()
+  console.log("hell")
   return (
-    <NavigationContainer>
-       <Header/>
-      {/* <NavigationContainer>  */}
-     <MyTabs />
+    <DataContextProvider>
+      <NavigationContainer>
+        <MyTabs />
      </NavigationContainer>
-   
+    </DataContextProvider>
   );
 }
 
