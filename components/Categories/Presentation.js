@@ -1,37 +1,51 @@
 import React from 'react'
-import {StyleSheet,Text,View, ScrollView, Image} from 'react-native'
-import { Card, Button, Icon } from "react-native-elements"
+import {StyleSheet,View, ScrollView, Image,FlatList, Dimensions} from 'react-native'
+import { Card, Button, Icon} from "react-native-elements"
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import MoviesImage from '../../assets/sat.jpg'
+import CartoonImage from '../../assets/sam.jpg'
 
 function Presentation(props) {
   const { navigation } = props
   console.log(props)
+  
+  const COLUMNS = 2
   return (
     <View>
       <ScrollView>
-        {
-          categories.map(item => {
-            return (
-              <View style={styles.buttonStyles} key={item} >
-                <Button  
-                  onPress={() => navigation.navigate("MoviesList")}
-                  title={item}
-                  raised
-                />
-              </View>
-            )
-          })
-        }
+        
+        <FlatList 
+        // WIDTH={Dimensions}
+        numColumns={COLUMNS}
+        keyExtractor={(item) => item.id} 
+        data={categories} 
+        renderItem={({ item }) => (
+          
+            <TouchableOpacity onPress={() => navigation.navigate("MoviesList")} >
+             <View style={styles.Row}>
+                 <Card
+                 image={item.images}
+                  title={item.title}
+                  raise
+                 />
+                 </View>
+          </TouchableOpacity>
+        )}
+      />
+
       </ScrollView>
     </View>
   )
 }
 
 export default Presentation;
-
-const categories = ['Movies', 'Cartoons']
+const ITEM_WIDTH = Dimensions.get('window').width
+const categories = [{title:"Moviesl", images:MoviesImage, id:'1' },{title:"Cartoons",images:CartoonImage, id:'2' } ]
 
 const styles = StyleSheet.create({
-    buttonStyles:{
-      padding: 10
-    }
+   
+    Row:{
+      width:ITEM_WIDTH/2,
+          }
+   
 });

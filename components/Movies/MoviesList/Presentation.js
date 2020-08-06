@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet,Text,View, ScrollView, Image} from 'react-native'
+import {StyleSheet,Text,View,Dimensions, ScrollView, FlatList,Image,TouchableOpacity} from 'react-native'
 import { Card, Button, Icon } from "react-native-elements"
 
 function Presentation(props) {
@@ -7,28 +7,38 @@ function Presentation(props) {
   console.log(props)
   if(isLoading) return <Text>Loading</Text>
   return (
-    <View>
-      <ScrollView>
+    <View >
+      <ScrollView >
       {
         movies.map((movie, i) => {
           return (
+            <TouchableOpacity onPress={() => navigation.navigate("MovieTemplates", { movieID: movie.id })} >
+           <View style={styles.Row} >
             <Card
               key={movie.id}
               image={movie.coverImage.publicURL}
               title={movie.title}
-            > 
-              <Button
-                onPress={() => navigation.navigate("MovieTemplates", { movieID: movie.id })}
-                icon={<Icon name='visibility' style={{marginRight: 5}} color='#ffffff' />}
-                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                title='VIEW' />
-            </Card>
+              
+            /> 
+             </View>
+            
+            </TouchableOpacity>
           );
         })
       }
+     
       </ScrollView>
     </View>
   )
 }
 
 export default Presentation;
+const ITEM_WIDTH = Dimensions.get('window').width
+const styles = StyleSheet.create({
+   
+  Row:{
+    width:ITEM_WIDTH/2,
+    flex:1,
+     }
+ 
+});
