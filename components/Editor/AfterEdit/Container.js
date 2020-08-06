@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Presentation from "./Presentation"
+
 export class Container extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,7 @@ export class Container extends Component {
         return (
             <Presentation 
             {...this.state}
-            {...this.props}
+            
             />
         )
     }

@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
 function Presentation(props) {
     const { imageURL, imageStyles, ITEM_WIDTH, navigation } = props
     const [visible, setVisible] = useState(false);
-
+ console.log(imageURL)
     const toggleOverlay = () => {
         setVisible(!visible);
     };
@@ -47,7 +47,7 @@ function Presentation(props) {
                                     }}
                                     onPress={() => {
                                         toggleOverlay()
-                                        navigation.navigate("ImageEditor")
+                                        navigation.navigate("ImageEditor",{imageURL})
                                     } }
                                     title="Edit this image"
                                 />
