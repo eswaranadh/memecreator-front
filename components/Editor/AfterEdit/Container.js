@@ -12,6 +12,7 @@ export class Container extends Component {
         return (
             <Presentation 
             {...this.state}
+            {...this.props}
             
             />
         )

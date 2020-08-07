@@ -6,20 +6,21 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 function Presentation(props) {
-  const { navigation } = props;
-  
+  const { navigation,route } = props;
+  const { itemdata } = route.params;
+  // console.log(localimage)
  
     return (
       <ScrollView >
       <View>
         <View style={{borderTopWidth:100,borderBottomWidth:100,margin:2}}>
-        <Image style={{height:340,width:420,marginleft:2,borderRadius:1,}} source={require('../../../assets/sam.jpg')}/>
+        <Image style={{height:340,width:420,marginleft:2,borderRadius:1,}} source={{uri:itemdata}}/>
         </View> 
         <View>
           
           <Button        
            buttonStyle={{backgroundColor: 'green',margin:10 }}
-           onPress={() => navigation.navigate("AfterEdit")}
+           onPress={() => navigation.navigate("AfterEdit",{LocalImage:itemdata})}
            title="Done"
           />
         </View>

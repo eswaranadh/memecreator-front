@@ -7,7 +7,9 @@ export class Container extends Component {
           
         };
     }
+    
     render() {
+        // console.log(localimages)
         return (
             <Presentation 
             {...this.state}

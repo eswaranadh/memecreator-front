@@ -2,29 +2,39 @@ import React from 'react'
 import {StyleSheet,View,Image,Share} from 'react-native'
 import { Icon } from 'react-native-elements'
 import sam from '../../../assets/sam.jpg'
-
+import * as Sharing from 'expo-sharing'; 
 
  
 
-function Presentation(){
+function Presentation(props){
+  const {route}=props;
+  const {LocalImage}=route.params;
     
-        const onShare = async () => {
-          try {
-            const result = await Share.share({
-              message:
-                'React Native | A framework for building native apps using React',
-                Url:sam
-            });
+        // const onShare = async () => {
+        //   try {
+        //     const result = await Share.share({
+        //       message:
+        //         'React Native | A framework for building native apps using React',
+        //         Url:sam
+        //     });
       
-                     } catch (error) {
-            alert(error.message);
+        //              } catch (error) {
+        //     alert(error.message);
+        //   }
+        // };
+        let openShareDialogAsync = async () => {
+          if (!(await Sharing.isAvailableAsync())) {
+            alert(`Uh oh, sharing isn't available on your platform`);
+            return;
           }
+      
+          Sharing.shareAsync(LocalImage);
         };
     
     return(
         <View>
             <View>
-             <Image style={{height:340,width:420,marginleft:2,borderRadius:1,}} source={require('../../../assets/sam.jpg')}/>
+             <Image style={{height:340,width:420,marginleft:2,borderRadius:1,}} source={{uri:LocalImage}}/>
              </View>
              <View style={styles.buttonsContainer} >
                 <View style={styles.buttonContainer} >
@@ -51,7 +61,7 @@ function Presentation(){
               name='share'
               type='font-awesome'
               color='#f50'
-              onPress={onShare} />
+              onPress={openShareDialogAsync} />
 
              </View>
              </View>
