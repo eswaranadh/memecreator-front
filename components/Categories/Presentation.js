@@ -68,8 +68,7 @@ function Presentation(props) {
                     size={20}
                     onPress={()=>{
                       openImagePickerAsync() 
-                      navigation.navigate("ImageEditor"
-                      ,{itemdata:selectedImage.localUri}
+                      navigation.navigate("ImageEditor",{itemdata:selectedImage.localUri}
                       )} 
                        }/>
                     </View> 
