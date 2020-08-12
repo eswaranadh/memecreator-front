@@ -1,9 +1,5 @@
 import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
-<<<<<<< Updated upstream
-// import Home from '../Home';
-=======
->>>>>>> Stashed changes
 import MoviesList from "../Movies/MoviesList"
 import Categories from "../Categories"
 import MovieTemplates from "../Movies/MovieTemplates"

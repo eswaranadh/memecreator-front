@@ -1,13 +1,17 @@
 import React from 'react'
-import {StyleSheet,View, ScrollView, Image,FlatList, Dimensions, ImagePickerIOS} from 'react-native'
+import {StyleSheet,View, ScrollView, Image,FlatList, Dimensions, ImagePickerIOS, Text} from 'react-native'
 import { Card, Button, Icon} from "react-native-elements"
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import MoviesImage from '../../assets/sat.jpg'
 import CartoonImage from '../../assets/sam.jpg'
 import * as ImagePicker from 'expo-image-picker'
-import AddImage from '../shared/AddImage'
+import { openStyles } from "../shared/styles/openStyles"
+// import AddImage from '../shared/AddImage'
 // import ImageEditor from '../Editor/ImageEditor'
 // import Local from '../shared/LocalImage'
+
+const ITEM_WIDTH = Dimensions.get('window').width
+const COLUMNS = 2
 
 function Presentation(props) {
   const { navigation } = props
@@ -40,19 +44,14 @@ function Presentation(props) {
       
       <ScrollView style={{position:"relative"}}>
         <FlatList 
-        numColumns={2}
+        numColumns={COLUMNS}
         keyExtractor={(item) => item.id} 
         data={categories} 
         renderItem={({ item }) => (
-          
-            <TouchableOpacity onPress={() => navigation.navigate("MoviesList")} >
-             <View style={styles.Row}>
-                 <Card
-                 image={item.images}
-                  title={item.title}
-                  raise 
-                 />
-                 </View>
+          <TouchableOpacity onPress={() => navigation.navigate("MoviesList")} >
+              <View style={openStyles.cardStyles(ITEM_WIDTH, COLUMNS)}>
+                <Text style={openStyles.textFormat} >{ item.title }</Text>
+              </View>
           </TouchableOpacity>
         )}
       />
@@ -61,12 +60,12 @@ function Presentation(props) {
       <View style={{position:"absolute",marginTop:660,marginLeft:340}}>
       {/* <Image source={{ uri: selectedImage.localUri }}  /> */}
                 <Icon
-                    reverse
-                    name='plus'
-                    type='font-awesome'
-                    color='#696969'
-                    size={20}
-                    onPress={()=>{
+                  reverse
+                  name='plus'
+                  type='font-awesome'
+                  color='#696969'
+                  size={20}
+                  onPress={()=>{
                       openImagePickerAsync() 
                       navigation.navigate("ImageEditor",{itemdata:selectedImage.localUri}
                       )} 
@@ -77,7 +76,6 @@ function Presentation(props) {
 }
 
 export default Presentation;
-const ITEM_WIDTH = Dimensions.get('window').width
 const categories = [{title:"Movies", images:MoviesImage, id:'1' },{title:"Cartoons",images:CartoonImage, id:'2' }, ]
 
 const styles = StyleSheet.create({
