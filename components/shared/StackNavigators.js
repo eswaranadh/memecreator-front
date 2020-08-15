@@ -10,7 +10,17 @@ const HomeStack = createStackNavigator()
 
 export function HomeStackScreen(){
     return (
-        <HomeStack.Navigator initialRouteName="Categories" >
+        <HomeStack.Navigator screenOptions={{
+            cardStyle: {
+                backgroundColor: "#121212"
+            },
+            headerStyle: {
+                backgroundColor:"#282828"
+            },
+            headerTitleStyle: {
+                color: 'white'
+            }
+        }} initialRouteName="Categories" >
             <HomeStack.Screen name="Categories" component={Categories} />
             <HomeStack.Screen name="MoviesList" component={MoviesList} /> 
             <HomeStack.Screen name="MovieTemplates" component={MovieTemplates} /> 

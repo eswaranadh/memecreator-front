@@ -47,7 +47,7 @@ function Presentation(props) {
                                     }}
                                     onPress={() => {
                                         toggleOverlay()
-                                        navigation.navigate("ImageEditor",{imageURL})
+                                        navigation.navigate("ImageEditor",{imageURL: imageURL})
                                     } }
                                     title="Edit this image"
                                 />

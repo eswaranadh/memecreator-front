@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import MoviesImage from '../../assets/sat.jpg'
 import CartoonImage from '../../assets/sam.jpg'
 import * as ImagePicker from 'expo-image-picker'
-import { openStyles } from "../shared/styles/openStyles"
+import { openStyles, cardStyles } from "../shared/styles/openStyles"
 // import AddImage from '../shared/AddImage'
 // import ImageEditor from '../Editor/ImageEditor'
 // import Local from '../shared/LocalImage'
@@ -49,7 +49,7 @@ function Presentation(props) {
         data={categories} 
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => navigation.navigate("MoviesList")} >
-              <View style={openStyles.cardStyles(ITEM_WIDTH, COLUMNS)}>
+              <View style={[cardStyles(ITEM_WIDTH, COLUMNS), { backgroundColor: item.cardColor }]}>
                 <Text style={openStyles.textFormat} >{ item.title }</Text>
               </View>
           </TouchableOpacity>
@@ -76,7 +76,20 @@ function Presentation(props) {
 }
 
 export default Presentation;
-const categories = [{title:"Movies", images:MoviesImage, id:'1' },{title:"Cartoons",images:CartoonImage, id:'2' }, ]
+const categories = [
+  {
+    title:"Movies", 
+    images:MoviesImage, 
+    id:'1' ,
+    cardColor: "#cc3828"
+  },
+  {
+    title:"Cartoons",
+    images:CartoonImage, 
+    id:'2',
+    cardColor: "#be781b"
+  }, 
+]
 
 const styles = StyleSheet.create({
    

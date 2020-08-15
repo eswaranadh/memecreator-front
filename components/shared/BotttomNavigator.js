@@ -73,7 +73,7 @@
 //   );
 // }
 
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -82,15 +82,21 @@ import CustomRoom from '../customroom';
 import Favorite from '../favorite';
 import Profile from '../profile';
 import { HomeStackScreen } from "./StackNavigators"
+import { DataContext } from '../../context/reducer';
+
 
 const Tab = createBottomTabNavigator();
-
 export default function MyTabs() {
+  const [state] = useContext(DataContext)
+  console.log(state)
   return (
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        activeTintColor: '#e91e63',
+        activeTintColor: "white",
+        style: {
+          backgroundColor: "#282828"
+        }
       }}
     >
       <Tab.Screen
