@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -7,11 +7,12 @@ import {
   ScrollView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import FormInput from '../../../GeneralComponents/FormInput';
-import FormButton from '../../../GeneralComponents/FormButton';
+import FormInput from '../../../shared/GeneralComponents/FormInput';
+import FormButton from '../../../shared/GeneralComponents/FormButton';
 import Logo from '../../../../assets/logo.png';
 
-const LoginScreen = () => {
+const LoginScreen = (props) => {
+  const { navigation } = props
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -19,7 +20,7 @@ const LoginScreen = () => {
     <LinearGradient
       useAngle={true}
       angle={80}
-      angleCenter={{x: 0.9, y: 1.0}}
+      angleCenter={{ x: 0.9, y: 1.0 }}
       colors={['#1D4350', '#A43931']}
       style={styles.linearcontainer}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -43,13 +44,13 @@ const LoginScreen = () => {
           secureTextEntry={true}
         />
 
-        <FormButton buttonTitle="Sign In" onPress={() => {}} />
+        <FormButton buttonTitle="Sign In" onPress={() => { navigation.navigate("Categories") }} />
 
-        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
           <Text style={styles.navButtonText}>Forgot Password?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
           <Text style={styles.navButtonText}>
             Don't have an acount? Create here
           </Text>

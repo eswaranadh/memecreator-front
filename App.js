@@ -1,6 +1,7 @@
 import React from 'react';
-import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
-import Splash from './src/Screens/SplashScreen';
+import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
+import BottomNavigations from "./src/shared/Navigators/BottomNavigators"
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   const theme = {
@@ -16,7 +17,9 @@ export default function App() {
 
   return (
     <PaperProvider theme={theme}>
-      <Splash />
+      <NavigationContainer>
+        <BottomNavigations />
+      </NavigationContainer>
     </PaperProvider>
   );
 }

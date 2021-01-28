@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ActivityIndicator,
   View,
@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Logo from '../../assets/logo.png';
-import Login from '../Authentication/components/Login';
+import Login from '../services/Authentication/Login';
 
 function SplashScreen() {
   const [animating, setAnimating] = useState(true);
@@ -26,7 +26,7 @@ function SplashScreen() {
       <LinearGradient
         useAngle={true}
         angle={80}
-        angleCenter={{x: 0.9, y: 1.0}}
+        angleCenter={{ x: 0.9, y: 1.0 }}
         colors={['#1D4350', '#A43931']}
         style={styles.container}>
         <View>
