@@ -1,9 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView, Image, FlatList, Dimensions, ImagePickerIOS, Text } from 'react-native'
-import { Card, Button, Icon } from "react-native-elements"
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import MoviesImage from '../../../../assets/movies.jpg'
-import CartoonImage from '../../../assets/cartoons.jpg'
+import CartoonImage from '../../../../assets/cartoons.jpg'
 import { openStyles, cardStyles } from "../../../../shared/styles/openStyles"
 
 const ITEM_WIDTH = Dimensions.get('window').width
