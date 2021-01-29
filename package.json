@@ -16,6 +16,7 @@
     "@react-navigation/native": "^5.7.2",
     "@react-navigation/stack": "^5.9.0",
     "react": "16.13.1",
+    "react-icons": "^4.1.0",
     "react-native": "0.63.4",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-linear-gradient": "^2.5.6",
