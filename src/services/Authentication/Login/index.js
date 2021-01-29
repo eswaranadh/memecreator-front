@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -12,7 +12,7 @@ import FormButton from '../../../shared/GeneralComponents/FormButton';
 import Logo from '../../../../assets/logo.png';
 
 const LoginScreen = (props) => {
-  const { navigation } = props
+  const {navigation} = props;
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -20,7 +20,7 @@ const LoginScreen = (props) => {
     <LinearGradient
       useAngle={true}
       angle={80}
-      angleCenter={{ x: 0.9, y: 1.0 }}
+      angleCenter={{x: 0.9, y: 1.0}}
       colors={['#1D4350', '#A43931']}
       style={styles.linearcontainer}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -44,13 +44,26 @@ const LoginScreen = (props) => {
           secureTextEntry={true}
         />
 
-        <FormButton buttonTitle="Sign In" onPress={() => { navigation.navigate("Categories") }} />
+        <FormButton
+          buttonTitle="Sign In"
+          onPress={() => {
+            navigation.navigate('Categories');
+          }}
+        />
 
-        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
           <Text style={styles.navButtonText}>Forgot Password?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
+        <TouchableOpacity
+          style={styles.forgotButton}
+          onPress={() => {
+            navigation.navigate('Categories');
+          }}>
+          <Text style={styles.navButtonText}>Skip login</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
           <Text style={styles.navButtonText}>
             Don't have an acount? Create here
           </Text>
