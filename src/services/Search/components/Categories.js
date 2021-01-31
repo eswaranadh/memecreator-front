@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView, Image, FlatList, Dimensions, ImagePickerIOS, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import MoviesImage from '../../../../assets/movies.jpg'
-import CartoonImage from '../../../../assets/cartoons.jpg'
-import { openStyles, cardStyles } from "../../../../shared/styles/openStyles"
+import MoviesImage from '../../../assets/movies.jpg'
+import CartoonImage from '../../../assets/cartoons.jpg'
+import { openStyles, cardStyles } from "../../../shared/styles/openStyles"
 
 const ITEM_WIDTH = Dimensions.get('window').width
 const COLUMNS = 2

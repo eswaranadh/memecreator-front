@@ -44,7 +44,7 @@ const LoginScreen = (props) => {
           secureTextEntry={true}
         />
 
-        <FormButton buttonTitle="Sign In" onPress={() => { navigation.navigate("Categories") }} />
+        <FormButton buttonTitle="Sign In" onPress={() => { navigation.navigate("SearchScreen") }} />
 
         <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
           <Text style={styles.navButtonText}>Forgot Password?</Text>
