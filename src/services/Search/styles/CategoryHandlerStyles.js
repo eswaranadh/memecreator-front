@@ -29,4 +29,8 @@ export default StyleSheet.create({
     width: 80,
     height: 50
   },
+  helperHeading: {
+    display: "flex",
+    justifyContent: "space-between"
+  }
 });
