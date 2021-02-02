@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import SearchBar from "../services/Search/components/SearchBar"
 import Categories from "../services/Search/components/Categories"
 import CategoryHandler from "../services/Search/components/CategoryHandler"
+import  MemeTemplates from "../services/Search/components/MemeTemplates";
 
 export default function SearchScreen() {
   // 
@@ -16,6 +17,9 @@ export default function SearchScreen() {
       </View>
       <View>
         <CategoryHandler />
+      </View>
+      <View>
+        <MemeTemplates/>
       </View>
     </View>
   )
