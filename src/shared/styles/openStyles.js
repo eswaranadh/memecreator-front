@@ -9,10 +9,10 @@ export const openStyles = StyleSheet.create({
     }
 })
 
-export function cardStyles(ITEM_WIDTH, COLUMNS){
-    return{
-        width: (ITEM_WIDTH - 10*COLUMNS)/COLUMNS,
-        height: (ITEM_WIDTH/COLUMNS)/1.5,
+export function cardStyles(ITEM_WIDTH, COLUMNS) {
+    return {
+        width: (ITEM_WIDTH - 10 * COLUMNS) / COLUMNS,
+        height: (ITEM_WIDTH / COLUMNS) / 1.9,
         margin: 5,
         flex: 1,
         borderRadius: 6,
