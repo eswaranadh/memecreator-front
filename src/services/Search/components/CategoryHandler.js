@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView, Image, FlatList, Dimensions, ImagePickerIOS, Text } from 'react-native'
+import { StyleSheet, View, ScrollView, Image, FlatList, Dimensions, ImagePickerIOS, Text ,VirtualizedList} from 'react-native'
 import CategoryHandlerStyles from '../styles/CategoryHandlerStyles'
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 
@@ -7,10 +7,13 @@ const ITEM_WIDTH = Dimensions.get('window').width
 const COLUMNS = 2
 
 export default function CategoryHandler(props) {
-  const { category } = props
 
   return (
     <View style={CategoryHandlerStyles.container} >
+      <View style={CategoryHandlerStyles.headBar}>
+           <View><Text style={CategoryHandlerStyles.headContentOne}>Movies</Text></View> 
+           <View><Text style={CategoryHandlerStyles.headContentTwo}> More </Text></View> 
+        </View>
       <ScrollView
         horizontal={true}
       >
@@ -79,4 +82,3 @@ const dummy = [
   },
 ]
 
-//
