@@ -11,6 +11,18 @@ export default function CategoryHandler(props) {
 
   return (
     <View style={CategoryHandlerStyles.container} >
+      <View style={CategoryHandlerStyles.helperHeading} >
+        <View>
+          <Text>
+            Movies
+        </Text>
+        </View>
+        <View>
+          <Text>
+            View all
+        </Text>
+        </View>
+      </View>
       <ScrollView
         horizontal={true}
       >
@@ -78,5 +90,3 @@ const dummy = [
     publicURL: "https://images-na.ssl-images-amazon.com/images/I/81H11UDnF9L._RI_.jpg"
   },
 ]
-
-//

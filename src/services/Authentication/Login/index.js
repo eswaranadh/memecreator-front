@@ -12,7 +12,7 @@ import FormButton from '../../../shared/GeneralComponents/FormButton';
 import Logo from '../../../../assets/logo.png';
 
 const LoginScreen = (props) => {
-  const { navigation } = props
+  const { navigation } = props;
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -44,10 +44,23 @@ const LoginScreen = (props) => {
           secureTextEntry={true}
         />
 
-        <FormButton buttonTitle="Sign In" onPress={() => { navigation.navigate("SearchScreen") }} />
+        <FormButton
+          buttonTitle="Sign In"
+          onPress={() => {
+            navigation.navigate('Categories');
+          }}
+        />
 
         <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
           <Text style={styles.navButtonText}>Forgot Password?</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.forgotButton}
+          onPress={() => {
+            navigation.navigate('Categories');
+          }}>
+          <Text style={styles.navButtonText}>Skip login</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
