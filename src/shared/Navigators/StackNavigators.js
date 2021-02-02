@@ -2,7 +2,7 @@ import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
 import Login from "../../services/Authentication/Login"
 import Categories from "../../services/Templates/components/Categories"
-import CategoryDetails from "../../services/Templates/components/CategoryDetails"
+// import CategoryDetails from "../../services/Templates/components/CategoryDetails"
 import Splash from '../../appscreens/SplashScreen';
 import SearchScreen from "../../appscreens/SearchScreen"
 

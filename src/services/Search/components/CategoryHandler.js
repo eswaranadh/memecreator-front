@@ -17,10 +17,11 @@ export default function CategoryHandler(props) {
             Movies
         </Text>
         </View>
-
-        <Text>
-          View all
+        <View>
+          <Text>
+            View all
         </Text>
+        </View>
       </View>
       <ScrollView
         horizontal={true}

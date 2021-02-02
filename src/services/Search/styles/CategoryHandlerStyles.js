@@ -31,6 +31,7 @@ export default StyleSheet.create({
   },
   helperHeading: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+
   }
 });
