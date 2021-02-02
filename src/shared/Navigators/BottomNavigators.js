@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SearchStackScreen} from './StackNavigators';
 import InProgress from '../GeneralComponents/InProgress';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
@@ -54,8 +54,8 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons
-              name="library-music-outline"
+            <FontAwesome
+              name="user"
               size={30}
               style={{marginBottom: -3}}
               color={color}
