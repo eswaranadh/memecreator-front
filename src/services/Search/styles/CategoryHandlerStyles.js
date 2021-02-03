@@ -23,11 +23,28 @@ export default StyleSheet.create({
   cardStyles: {
     width: 100,
     // height: 190,
-    marginRight: 10
+    marginRight: 10,
+    marginTop: 10,
   },
   imageStyles: {
     width: 80,
     height: 50
+  },
+  headBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "stretch"
+  },
+  headContentOne: {
+    color: "#ffffff",
+    fontWeight: "bold",
+    fontSize: 19,
+  },
+  headContentTwo: {
+    color: "#ffffff",
+    fontWeight: "bold",
+    fontSize: 15,
+    marginTop: 4,
   },
   helperHeading: {
     display: "flex",
