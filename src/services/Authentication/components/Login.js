@@ -12,6 +12,7 @@ import FormButton from '../../../shared/GeneralComponents/FormButton';
 import Logo from '../../../../assets/logo.png';
 import { Context, ContextProvider } from '../context/context';
 import Wrapper from '../../../shared/GeneralComponents/Wrapper';
+import { windowWidth } from '../../../utils/Dimensions';
 
 const LoginScreen = (props) => {
   const { navigation } = props;
