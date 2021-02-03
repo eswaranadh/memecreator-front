@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -10,17 +10,27 @@ import LinearGradient from 'react-native-linear-gradient';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
 import Logo from '../../../../assets/logo.png';
+import {Context, ContextProvider} from '../context/context';
+import Wrapper from '../../../shared/GeneralComponents/Wrapper';
 
 const LoginScreen = (props) => {
-  const { navigation } = props;
+  const {navigation} = props;
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [state, dispatch] = useContext(Context);
+  const setState = (obj) => {
+    console.log(obj);
+    dispatch({
+      type: 'SET_STATE',
+      payload: obj,
+    });
+  };
 
   return (
     <LinearGradient
       useAngle={true}
       angle={80}
-      angleCenter={{ x: 0.9, y: 1.0 }}
+      angleCenter={{x: 0.9, y: 1.0}}
       colors={['#1D4350', '#A43931']}
       style={styles.linearcontainer}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -47,23 +57,23 @@ const LoginScreen = (props) => {
         <FormButton
           buttonTitle="Sign In"
           onPress={() => {
-            navigation.navigate('Categories');
+            setState({userLoggedIn: true});
           }}
         />
 
-        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
           <Text style={styles.navButtonText}>Forgot Password?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.forgotButton}
           onPress={() => {
-            navigation.navigate('Categories');
+            setState({userLoggedIn: true});
           }}>
           <Text style={styles.navButtonText}>Skip login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
           <Text style={styles.navButtonText}>
             Don't have an acount? Create here
           </Text>
@@ -73,7 +83,7 @@ const LoginScreen = (props) => {
   );
 };
 
-export default LoginScreen;
+export default Wrapper(ContextProvider, LoginScreen);
 
 const styles = StyleSheet.create({
   container: {
