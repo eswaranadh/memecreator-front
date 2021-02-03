@@ -1,27 +1,44 @@
 import React from 'react'
-import { View, Text, ScrollView, FlatList } from 'react-native'
+import { View, Text, ScrollView, FlatList,SafeAreaView } from 'react-native'
 import { Card } from 'react-native-paper'
 import MemeTemplatesStyles from "../styles/MemeTemplatesStyles";
+import {useNavigation } from "@react-navigation/native";
 export default function MemeTemplates(props) {
+  const navigation = useNavigation();
+  const { route = {} } = props
+  const { params = {} } = route
+  const { fullView = false, type } = params
+  let memeType = fullView ? type : props.type
   let data = []
-  if (props.type === "Trending")
+  if (memeType === "Trending")
     data = Trending;
-  else if (props.type === "Cartoon")
-    data = Cartoon
-  else if (props.type === "Ali")
-    data = Ali
+  else if (memeType === "Cartoon")
+    data = Cartoon;
+  else if (memeType === "Ali")
+    data = Ali;
+
+console.log(fullView)
   return (
     <View style={MemeTemplatesStyles.container}>
-      <View style={MemeTemplatesStyles.headBar}>
-        <View><Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text></View>
-        <View><Text style={MemeTemplatesStyles.headContentTwo}> More </Text></View>
-      </View>
-      <ScrollView horizontal={true}>
+     {
+       !fullView ?
+       <View style={MemeTemplatesStyles.headBar}>
+       <View><Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text></View>
+       <View><Text onPress={() => navigation.navigate("MemeTemplates", { fullView: true, type: props.type })} style={MemeTemplatesStyles.headContentTwo}> More </Text></View>
+     </View>
+     :
+     null
+     }
+      
+      <ScrollView 
+         horizontal={!fullView}
+      >
+      <SafeAreaView style={{flex: 1}}>
         <View>
           <FlatList
-            numColumns={10}
+            numColumns={fullView ? 2 : 10}
             scrollEnabled={true}
-            data={data}
+            data={fullView ? data : data.slice(0, 10)}
             renderItem={({ item }) => (
               <Card style={MemeTemplatesStyles.cardStyles} >
                 <Card.Cover source={{ uri: item.templateURL }} />
@@ -30,6 +47,7 @@ export default function MemeTemplates(props) {
             keyExtractor={(item) => item.id}
           />
         </View>
+        </SafeAreaView>
       </ScrollView>
     </View>
   )
@@ -106,41 +124,41 @@ const Trending = [
     navigator: "MoviesList",
     templateURL: "https://chaibisket.com/wp-content/uploads/2020/06/Ready-4.jpg",
   },
-  // {
-  //   title: "MovieName",
-  //   id: '11',
-  //   color: "#cc3828",
-  //   navigator: "MoviesList",
-  //   templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-7.jpg",
-  // },
-  // {
-  //   title: "MovieName",
-  //   id: '12',
-  //   color: "#cc3828",
-  //   navigator: "MoviesList",
-  //   templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-10.jpg",
-  // },
-  // {
-  //   title: "MovieName",
-  //   id: '13',
-  //   color: "#cc3828",
-  //   navigator: "MoviesList",
-  //   templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-14.jpg",
-  // },
-  // {
-  //   title: "MovieName",
-  //   id: '14',
-  //   color: "#cc3828",
-  //   navigator: "MoviesList",
-  //   templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-15.jpg",
-  // },
-  // {
-  //   title: "MovieName",
-  //   id: '15',
-  //   color: "#cc3828",
-  //   navigator: "MoviesList",
-  //   templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-17.jpg",
-  // },
+  {
+    title: "MovieName",
+    id: '11',
+    color: "#cc3828",
+    navigator: "MoviesList",
+    templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-7.jpg",
+  },
+  {
+    title: "MovieName",
+    id: '12',
+    color: "#cc3828",
+    navigator: "MoviesList",
+    templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-10.jpg",
+  },
+  {
+    title: "MovieName",
+    id: '13',
+    color: "#cc3828",
+    navigator: "MoviesList",
+    templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-14.jpg",
+  },
+  {
+    title: "MovieName",
+    id: '14',
+    color: "#cc3828",
+    navigator: "MoviesList",
+    templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-15.jpg",
+  },
+  {
+    title: "MovieName",
+    id: '15',
+    color: "#cc3828",
+    navigator: "MoviesList",
+    templateURL:"https://chaibisket.com/wp-content/uploads/2020/06/Ready-17.jpg",
+  },
 
 ];
 

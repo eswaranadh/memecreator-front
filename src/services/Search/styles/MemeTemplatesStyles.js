@@ -9,7 +9,7 @@ export default StyleSheet.create({
         margin: 5
       },
       cardStyles: {
-        width:190,
+        width: windowWidth/2.1,
         marginRight:10,
         marginTop:10,
       },
