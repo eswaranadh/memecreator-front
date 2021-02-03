@@ -30,6 +30,7 @@ export default StyleSheet.create({
     width: 80,
     height: 50
   },
+<<<<<<< HEAD
   headBar:{
     flexDirection:"row",
     justifyContent:"space-between",
@@ -46,4 +47,11 @@ export default StyleSheet.create({
     fontSize: 15,
     marginTop:4,
 },
+=======
+  helperHeading: {
+    display: "flex",
+    justifyContent: "space-between",
+
+  }
+>>>>>>> DEV
 });
