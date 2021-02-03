@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView, Image, FlatList, Dimensions, ImagePickerIOS, Text, VirtualizedList } from 'react-native'
+import { StyleSheet, View, ScrollView, Image, FlatList, Dimensions, ImagePickerIOS, Text, SafeAreaView } from 'react-native'
 import CategoryHandlerStyles from '../styles/CategoryHandlerStyles'
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import { windowWidth } from '../../../utils/Dimensions';
@@ -30,6 +30,7 @@ export default function CategoryHandler(props) {
       <ScrollView
         horizontal={!fullView}
       >
+        <SafeAreaView style={{flex: 1}}>
         <View>
           <FlatList
             numColumns={fullView ? 3 : 10}
@@ -44,6 +45,7 @@ export default function CategoryHandler(props) {
             keyExtractor={(item) => item.id}
           />
         </View>
+      </SafeAreaView>
       </ScrollView>
 
     </View>
