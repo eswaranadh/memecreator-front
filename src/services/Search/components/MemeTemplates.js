@@ -3,7 +3,6 @@ import { View, Text, ScrollView, FlatList } from 'react-native'
 import { Card } from 'react-native-paper'
 import MemeTemplatesStyles from "../styles/MemeTemplatesStyles";
 export default function MemeTemplates(props) {
-  console.log(props)
   let data = []
   if (props.type === "Trending")
     data = Trending;
@@ -11,7 +10,6 @@ export default function MemeTemplates(props) {
     data = Cartoon
   else if (props.type === "Ali")
     data = Ali
-  console.log(props)
   return (
     <View style={MemeTemplatesStyles.container}>
       <View style={MemeTemplatesStyles.headBar}>
