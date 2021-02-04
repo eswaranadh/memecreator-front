@@ -20,8 +20,8 @@ export default function CategoryHandler(props) {
       {
         !fullView ?
           <View style={CategoryHandlerStyles.headBar}>
-            <View><Text style={CategoryHandlerStyles.headContentOne}>Movies</Text></View>
-            <View><Text onPress={() => navigation.navigate("CategoryHandler", { fullView: true })} style={CategoryHandlerStyles.headContentTwo}> More </Text></View>
+            <Text style={CategoryHandlerStyles.headContentOne}>Movies</Text>
+            <Text onPress={() => navigation.navigate("CategoryHandler", { fullView: true })} style={CategoryHandlerStyles.headContentTwo}> more...</Text>
           </View>
           :
           null

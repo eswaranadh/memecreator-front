@@ -23,8 +23,8 @@ console.log(fullView)
      {
        !fullView ?
        <View style={MemeTemplatesStyles.headBar}>
-       <View><Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text></View>
-       <View><Text onPress={() => navigation.navigate("MemeTemplates", { fullView: true, type: props.type })} style={MemeTemplatesStyles.headContentTwo}> More </Text></View>
+       <Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text>
+      <Text style={MemeTemplatesStyles.headContentTwo} onPress={() => navigation.navigate("MemeTemplates", { fullView: true, type: props.type })}> more...</Text>
      </View>
      :
      null
