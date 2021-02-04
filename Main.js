@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, {useContext} from 'react';
 import Login from './src/services/Authentication/components/Login';
 import BottomNavigators from './src/shared/Navigators/BottomNavigators';
 import {
@@ -9,10 +9,9 @@ import Wrapper from './src/shared/GeneralComponents/Wrapper';
 
 function Main() {
   const [state] = useContext(Context);
-  const { userLoggedIn } = state;
-  //   useEffect(() => {}, []);
+  const {userLoggedIn} = state;
   //   console.log(state, state.userLoggedIn, userLoggedIn, 'hello');
-  //   console.log('userLoggedIn');
+  // console.log(userLoggedIn);
   if (userLoggedIn) {
     return <BottomNavigators />;
   }

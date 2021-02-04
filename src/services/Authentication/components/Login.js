@@ -1,26 +1,28 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {
-  Text,
-  TouchableOpacity,
   Image,
+  ImageBackground,
+  TouchableOpacity,
   StyleSheet,
+  View,
+  Text,
   ScrollView,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
 import Logo from '../../../../assets/logo.png';
-import { Context, ContextProvider } from '../context/context';
+import {Context, ContextProvider} from '../context/context';
 import Wrapper from '../../../shared/GeneralComponents/Wrapper';
-import { windowWidth } from '../../../utils/Dimensions';
+import {windowWidth} from '../../../utils/Dimensions';
+import Loginbg from '../../../../assets/loginbg.jpg';
 
-const LoginScreen = (props) => {
-  const { navigation } = props;
+const LoginScreen = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [veiwlogin, setVeiwlogin] = useState(true);
   const [state, dispatch] = useContext(Context);
   const setState = (obj) => {
-    console.log(obj);
+    // console.log(obj);
     dispatch({
       type: 'SET_STATE',
       payload: obj,
@@ -28,75 +30,138 @@ const LoginScreen = (props) => {
   };
 
   return (
-    <LinearGradient
-      useAngle={true}
-      angle={80}
-      angleCenter={{ x: 0.9, y: 1.0 }}
-      colors={['#1D4350', '#A43931']}
-      style={styles.linearcontainer}>
-      <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
+      <ImageBackground source={Loginbg} style={styles.image}>
         <Image source={Logo} style={styles.logo} />
-        <Text style={styles.text}>Meme Creator</Text>
-        <FormInput
-          labelValue={email}
-          onChangeText={(userEmail) => setEmail(userEmail)}
-          placeholderText="Email"
-          iconType="user"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
-
-        <FormInput
-          labelValue={password}
-          onChangeText={(userPassword) => setPassword(userPassword)}
-          placeholderText="Password"
-          iconType="lock"
-          secureTextEntry={true}
-        />
-
-        <FormButton
-          buttonTitle="Sign In"
-          onPress={() => {
-            setState({ userLoggedIn: true });
-          }}
-        />
-
-        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
-          <Text style={styles.navButtonText}>Forgot Password?</Text>
-        </TouchableOpacity>
-
+        <View style={styles.veiwcontainer}>
+          <TouchableOpacity
+            onPress={() => {
+              setVeiwlogin(true);
+            }}>
+            <Text style={styles.text}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setVeiwlogin(false);
+            }}>
+            <Text style={styles.text}>SignUp</Text>
+          </TouchableOpacity>
+        </View>
+        {veiwlogin ? (
+          <View style={styles.loginstyle}>
+            <FormInput
+              labelValue={email}
+              onChangeText={(userEmail) => setEmail(userEmail)}
+              placeholderText="Email"
+              iconType="user"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+            <FormInput
+              labelValue={password}
+              onChangeText={(userPassword) => setPassword(userPassword)}
+              placeholderText="Password"
+              iconType="lock"
+              secureTextEntry={true}
+            />
+            <FormButton
+              buttonTitle="Sign In"
+              onPress={() => {
+                setState({userLoggedIn: true});
+              }}
+            />
+          </View>
+        ) : (
+          <View style={styles.signupstyle}>
+            <FormInput
+              labelValue={email}
+              onChangeText={(userEmail) => setEmail(userEmail)}
+              placeholderText="Email"
+              iconType="user"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+            <FormInput
+              labelValue={password}
+              onChangeText={(userPassword) => setPassword(userPassword)}
+              placeholderText="Password"
+              iconType="lock"
+              secureTextEntry={true}
+            />
+            <FormInput
+              labelValue={password}
+              onChangeText={(userPassword) => setPassword(userPassword)}
+              placeholderText="Confirm Password"
+              iconType="lock"
+              secureTextEntry={true}
+            />
+            <FormButton
+              buttonTitle="Sign Up"
+              onPress={() => {
+                setState({userLoggedIn: true});
+              }}
+            />
+          </View>
+        )}
         <TouchableOpacity
-          style={styles.forgotButton}
           onPress={() => {
-            setState({ userLoggedIn: true });
+            setState({userLoggedIn: true});
           }}>
-          <Text style={styles.navButtonText}>Skip login</Text>
+          <Text style={styles.skip}>Skip For Login?</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
-          <Text style={styles.navButtonText}>
-            Don't have an acount? Create here
-          </Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </LinearGradient>
+      </ImageBackground>
+    </View>
   );
 };
 
 export default Wrapper(ContextProvider, LoginScreen);
 
 const styles = StyleSheet.create({
-  LoginBody: {
-    backgroundColor: '#1f2021',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center',
+  container: {
+    flex: 1,
+    flexDirection: 'column',
   },
-  Lable: {
-    color: '#ffffff',
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginLeft: windowWidth / 35,
-  }
-})
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  logo: {
+    height: 200,
+    width: 200,
+    resizeMode: 'cover',
+    alignSelf: 'center',
+  },
+  text: {
+    fontFamily: 'Kufam-SemiBoldItalic',
+    fontSize: 22,
+    marginBottom: 10,
+    color: '#fff',
+  },
+  veiwcontainer: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+  },
+  skip: {
+    marginTop: 50,
+    color: '#fff',
+    fontSize: 16,
+    alignSelf: 'center',
+  },
+  loginstyle: {
+    padding: 20,
+    margin: 20,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  signupstyle: {
+    margin: 20,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 20,
+    alignItems: 'center',
+  },
+});
