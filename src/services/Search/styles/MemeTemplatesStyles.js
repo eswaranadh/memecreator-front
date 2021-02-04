@@ -5,8 +5,8 @@ export default StyleSheet.create({
     container: {
         flexDirection: 'column',
         justifyContent: "space-between",
-        alignItems: "flex-start",
-        margin: 5
+        margin: 5,
+        
       },
       cardStyles: {
         width: windowWidth/2.1,
@@ -14,9 +14,12 @@ export default StyleSheet.create({
         marginTop:10,
       },
       headBar:{
+        display:'flex',
         flexDirection:"row",
-        justifyContent:"space-between",
-        alignContent:"stretch"
+        justifyContent:"space-between",    
+        alignContent:'stretch',
+        
+        
       },
       headContentOne:{
           color:"#ffffff",
@@ -24,9 +27,12 @@ export default StyleSheet.create({
           fontSize: 19,
       },
       headContentTwo:{
-        color:"#ffffff",
-        fontWeight:"bold",
-        fontSize: 15,
-        marginTop:4,
+       color:'#87cefa',
+        fontSize: 11,
+        alignSelf:'flex-end',
+        marginRight:10,
+        
+        
+        
     },
 });
