@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SearchScreen from '../../appscreens/SearchScreen';
 import CategoryHandler from "../../services/Search/components/CategoryHandler"
 import MemeTemplates from "../../services/Search/components/MemeTemplates";
+import PreviewScreen from "../../appscreens/PreviewScreen"
+
 const HomeStack = createStackNavigator();
 
 export function SearchStackScreen() {
@@ -27,7 +29,8 @@ export function SearchStackScreen() {
       <HomeStack.Screen name="SearchScreen" component={SearchScreen} />
       {/* <HomeStack.Screen name="Categories" component={Categories} /> */}
       <HomeStack.Screen name="CategoryHandler" component={CategoryHandler} />
-      <HomeStack.Screen name="MemeTemplates" component={MemeTemplates}/>
+      <HomeStack.Screen name="MemeTemplates" component={MemeTemplates} />
+      <HomeStack.Screen name="PreviewScreen" component={PreviewScreen} />
     </HomeStack.Navigator>
   );
 }

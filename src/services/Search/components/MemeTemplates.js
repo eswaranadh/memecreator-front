@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, Text, ScrollView, FlatList, SafeAreaView} from 'react-native';
-import {Card} from 'react-native-paper';
+import { View, Text, ScrollView, FlatList, SafeAreaView } from 'react-native';
+import { Card } from 'react-native-paper';
 import MemeTemplatesStyles from '../styles/MemeTemplatesStyles';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 export default function MemeTemplates(props) {
   const navigation = useNavigation();
-  const {route = {}} = props;
-  const {params = {}} = route;
-  const {fullView = false, type} = params;
+  const { route = {} } = props;
+  const { params = {} } = route;
+  const { fullView = false, type } = params;
   let memeType = fullView ? type : props.type;
   let data = [];
   if (memeType === 'Trending') data = Trending;
@@ -17,26 +17,26 @@ export default function MemeTemplates(props) {
   // console.log(fullView)
   return (
     <View style={MemeTemplatesStyles.container}>
-     {
-       !fullView ?
-       <View style={MemeTemplatesStyles.headBar}>
-       <Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text>
-      <Text style={MemeTemplatesStyles.headContentTwo} onPress={() => navigation.navigate("MemeTemplates", { fullView: true, type: props.type })}> more...</Text>
-     </View>
-     :
-     null
-     }
+      {
+        !fullView ?
+          <View style={MemeTemplatesStyles.headBar}>
+            <Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text>
+            <Text style={MemeTemplatesStyles.headContentTwo} onPress={() => navigation.navigate("MemeTemplates", { fullView: true, type: props.type })}> more...</Text>
+          </View>
+          :
+          null
+      }
 
       <ScrollView horizontal={!fullView}>
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{ flex: 1 }}>
           <View>
             <FlatList
               numColumns={fullView ? 2 : 10}
               scrollEnabled={true}
               data={fullView ? data : data.slice(0, 10)}
-              renderItem={({item}) => (
-                <Card style={MemeTemplatesStyles.cardStyles}>
-                  <Card.Cover source={{uri: item.templateURL}} />
+              renderItem={({ item }) => (
+                <Card onPress={() => navigation.navigate("PreviewScreen", { imageURL: item.templateURL })} style={MemeTemplatesStyles.cardStyles}>
+                  <Card.Cover source={{ uri: item.templateURL }} />
                 </Card>
               )}
               keyExtractor={(item) => item.id}
