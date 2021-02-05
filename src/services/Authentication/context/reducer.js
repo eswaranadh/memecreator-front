@@ -1,7 +1,7 @@
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_STATE':
-      // console.log(action.payload);
+      // console.log(action.payload, state);
       return {...state, ...action.payload};
 
     default:
