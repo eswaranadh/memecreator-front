@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
+import {StyleSheet, View} from 'react-native';
 
-const Login = () => {
+function SignUp() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
   return (
-    <View style={styles.loginstyle}>
+    <View style={styles.signupstyle}>
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
@@ -25,24 +24,31 @@ const Login = () => {
         iconType="lock"
         secureTextEntry={true}
       />
+      <FormInput
+        labelValue={password}
+        onChangeText={(userPassword) => setPassword(userPassword)}
+        placeholderText="Confirm Password"
+        iconType="lock"
+        secureTextEntry={true}
+      />
       <FormButton
-        buttonTitle="Sign In"
+        buttonTitle="Sign Up"
         onPress={() => {
           setState({userLoggedIn: true});
         }}
       />
     </View>
   );
-};
+}
 
-export default Login;
+export default SignUp;
 
 const styles = StyleSheet.create({
-  loginstyle: {
-    padding: 20,
+  signupstyle: {
     margin: 20,
     backgroundColor: '#fff',
     borderRadius: 12,
+    padding: 20,
     alignItems: 'center',
   },
 });
