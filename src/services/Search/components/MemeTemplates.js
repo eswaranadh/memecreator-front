@@ -17,26 +17,15 @@ export default function MemeTemplates(props) {
   // console.log(fullView)
   return (
     <View style={MemeTemplatesStyles.container}>
-      {!fullView ? (
-        <View style={MemeTemplatesStyles.headBar}>
-          <View>
-            <Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text>
-          </View>
-          <View>
-            <Text
-              onPress={() =>
-                navigation.navigate('MemeTemplates', {
-                  fullView: true,
-                  type: props.type,
-                })
-              }
-              style={MemeTemplatesStyles.headContentTwo}>
-              {' '}
-              More{' '}
-            </Text>
-          </View>
-        </View>
-      ) : null}
+     {
+       !fullView ?
+       <View style={MemeTemplatesStyles.headBar}>
+       <Text style={MemeTemplatesStyles.headContentOne}>{props.type}</Text>
+      <Text style={MemeTemplatesStyles.headContentTwo} onPress={() => navigation.navigate("MemeTemplates", { fullView: true, type: props.type })}> more...</Text>
+     </View>
+     :
+     null
+     }
 
       <ScrollView horizontal={!fullView}>
         <SafeAreaView style={{flex: 1}}>
