@@ -6,6 +6,7 @@ import {
   ContextProvider,
 } from './src/services/Authentication/context/context';
 import Wrapper from './src/shared/GeneralComponents/Wrapper';
+import AuthenticationScreen from './src/appscreens/AuthenticationScreen';
 
 function Main() {
   const [state] = useContext(Context);
@@ -15,7 +16,7 @@ function Main() {
   if (userLoggedIn) {
     return <BottomNavigators />;
   }
-  return <Login />;
+  return <AuthenticationScreen />;
   //   return state.userLoggedIn ? <BottomNavigators /> : <Login />;
 }
 
