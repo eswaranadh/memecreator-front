@@ -1,18 +1,18 @@
-import React, { useContext, useEffect } from 'react'
-import { View, Text } from 'react-native'
-import PreviewImage from "../services/Editor/components/PreviewImage"
-import { Context, ContextProvider } from "../services/Editor/context/context"
+import React, {useContext, useEffect} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import PreviewImage from '../services/Editor/components/PreviewImage';
+import {Context, ContextProvider} from '../services/Editor/context/context';
 import Wrapper from '../shared/GeneralComponents/Wrapper';
-import DownloadImage from "../services/Editor/components/actions/DownloadImage"
-import ShareImage from "../services/Editor/components/actions/ShareImage"
-import EditImage from "../services/Editor/components/actions/EditImage"
-
+import DownloadImage from '../services/Editor/components/actions/DownloadImage';
+import ShareImage from '../services/Editor/components/actions/ShareImage';
+import EditImage from '../services/Editor/components/actions/EditImage';
 
 function PreviewScreen(props) {
   const [state, dispatch] = useContext(Context);
-  const { route = {} } = props;
-  const { params = {} } = route;
-  const { imageURL } = params;
+  const {route = {}} = props;
+  console.log(props);
+  const {params = {}} = route;
+  const {imageURL} = params;
   const setState = (obj) => {
     dispatch({
       type: 'SET_STATE',
@@ -22,21 +22,35 @@ function PreviewScreen(props) {
 
   useEffect(() => {
     setState({
-      imageURL: imageURL
-    })
-  }, [imageURL])
+      imageURL: imageURL,
+    });
+  }, []);
   return (
     <View>
-      <Text>
-        <PreviewImage />
-      </Text>
       <View>
-        <DownloadImage />
-        <ShareImage />
-        <EditImage />
+        <PreviewImage />
+      </View>
+      <View style={styles.previewButtons}>
+        <Text>
+          <DownloadImage />
+        </Text>
+        <Text>
+          <ShareImage />
+        </Text>
+        <Text>
+          <EditImage />
+        </Text>
       </View>
     </View>
-  )
+  );
 }
 
-export default Wrapper(ContextProvider, PreviewScreen)
+export default Wrapper(ContextProvider, PreviewScreen);
+
+const styles = StyleSheet.create({
+  previewButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 70,
+  },
+});

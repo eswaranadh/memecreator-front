@@ -42,11 +42,11 @@ export default StyleSheet.create({
     fontSize: 19,
   },
   headContentTwo: {
-    color: "#87cefa",
-    fontSize: 11,
-    marginTop: 4,
+    color:"#ffffff",
+    fontWeight:"bold",
+    fontSize: 15,
+    alignSelf:'flex-end',
     marginRight:10,
-    alignSelf:'flex-end'
   },
   helperHeading: {
     display: "flex",

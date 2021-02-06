@@ -23,7 +23,7 @@ export default function SearchScreen() {
           <MemeTemplates type={"Cartoon"} />
         </View>
         <View>
-          <MemeTemplates type={"Ali"} />
+          <MemeTemplates type={"Brahmanandam"} />
         </View>
       </ScrollView>
     </View>
