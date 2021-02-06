@@ -1,12 +1,13 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 // import Login from '../../services/Authentication/components/Login';
 // import Categories from "../../services/Templates/components/Categories"
 // import CategoryDetails from "../../services/Templates/components/CategoryDetails"
 import SearchScreen from '../../appscreens/SearchScreen';
-import CategoryHandler from "../../services/Search/components/CategoryHandler"
-import MemeTemplates from "../../services/Search/components/MemeTemplates";
-import PreviewScreen from "../../appscreens/PreviewScreen"
+import CategoryHandler from '../../services/Search/components/CategoryHandler';
+import MemeTemplates from '../../services/Search/components/MemeTemplates';
+import PreviewScreen from '../../appscreens/PreviewScreen';
+import EditImageScreen from '../../appscreens/EditImageScreen';
 
 const HomeStack = createStackNavigator();
 
@@ -31,6 +32,7 @@ export function SearchStackScreen() {
       <HomeStack.Screen name="CategoryHandler" component={CategoryHandler} />
       <HomeStack.Screen name="MemeTemplates" component={MemeTemplates} />
       <HomeStack.Screen name="PreviewScreen" component={PreviewScreen} />
+      <HomeStack.Screen name="EditImageScreen" component={EditImageScreen} />
     </HomeStack.Navigator>
   );
 }

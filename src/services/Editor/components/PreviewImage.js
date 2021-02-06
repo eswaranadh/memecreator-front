@@ -9,6 +9,7 @@ import PreviewImageStyles from '../styles/PreviewImageStyles';
 export default function PreviewImage(props) {
   const [state, dispatch] = useContext(Context);
   const {imageURL} = state;
+  console.log(state);
   return (
     <View>
       <Image source={{uri: imageURL}} style={PreviewImageStyles.imageStyles} />
