@@ -18,8 +18,6 @@ export default StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",    
         alignContent:'stretch',
-        
-        
       },
       headContentOne:{
           color:"#ffffff",
@@ -27,8 +25,9 @@ export default StyleSheet.create({
           fontSize: 19,
       },
       headContentTwo:{
-       color:'#87cefa',
-        fontSize: 11,
+        color:"#ffffff",
+        fontWeight:"bold",
+        fontSize: 15,
         alignSelf:'flex-end',
         marginRight:10,
         
