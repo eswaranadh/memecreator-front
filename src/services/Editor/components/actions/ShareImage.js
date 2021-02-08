@@ -4,7 +4,7 @@ import {IconButton} from 'react-native-paper';
 import {Context} from '../../context/context';
 import Share from 'react-native-share';
 
-export default function DownloadImage(props) {
+export default function ShareImage(props) {
   const [state, dispatch] = useContext(Context);
   const {imageURL} = state;
 
