@@ -6,14 +6,13 @@ import { Context } from '../context/context';
 
 import PreviewImageStyles from '../styles/PreviewImageStyles';
 
-export default function PreviewImage(props) {
+export default function EditImage(props) {
   const [state, dispatch] = useContext(Context);
   const { imageURL, base64Image } = state;
-  console.log(base64Image);
   // if (imageURL) {
   return (
     <View>
-      <Image source={{ uri: imageURL }} style={PreviewImageStyles.imageStyles} />
+      <Image source={{ uri: base64Image }} style={PreviewImageStyles.imageStyles} />
     </View>
   );
   // }
