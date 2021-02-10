@@ -7,7 +7,9 @@ import {Context, ContextProvider} from '../services/Editor/context/context';
 function EditImageScreen() {
   return (
     <View>
-      <EditImage />
+      <Text>
+        <EditImage />
+      </Text>
     </View>
   );
 }

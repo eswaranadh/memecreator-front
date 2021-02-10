@@ -8,11 +8,14 @@ import PreviewImageStyles from '../styles/PreviewImageStyles';
 
 export default function PreviewImage(props) {
   const [state, dispatch] = useContext(Context);
-  const {imageURL} = state;
-  console.log(state);
+  const {imageURL, base64Image} = state;
+  console.log(base64Image);
+  // if (imageURL) {
   return (
     <View>
       <Image source={{uri: imageURL}} style={PreviewImageStyles.imageStyles} />
     </View>
   );
+  // }
+  // return <Text>"Image ..."</Text>
 }

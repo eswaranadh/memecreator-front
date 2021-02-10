@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
   return (
     <View style={styles.loginstyle}>
       <FormInput
@@ -28,7 +27,7 @@ const Login = () => {
       <FormButton
         buttonTitle="Sign In"
         onPress={() => {
-          setState({userLoggedIn: true});
+          setState({ userLoggedIn: true });
         }}
       />
     </View>

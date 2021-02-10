@@ -1,12 +1,11 @@
-import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
-import SearchBar from "../services/Search/components/SearchBar"
-import Categories from "../services/Search/components/Categories"
-import CategoryHandler from "../services/Search/components/CategoryHandler"
-import MemeTemplates from "../services/Search/components/MemeTemplates";
+import React from 'react';
+import {View, Text, ScrollView} from 'react-native';
+import SearchBar from '../services/Search/components/SearchBar';
+import Categories from '../services/Search/components/Categories';
+import CategoryHandler from '../services/Search/components/CategoryHandler';
+import MemeTemplates from '../services/Search/components/MemeTemplates';
 
 export default function SearchScreen() {
-
   return (
     <View>
       <ScrollView>
@@ -17,15 +16,9 @@ export default function SearchScreen() {
           <CategoryHandler />
         </View>
         <View>
-          <MemeTemplates type={"Trending"} />
-        </View>
-        <View>
-          <MemeTemplates type={"Cartoon"} />
-        </View>
-        <View>
-          <MemeTemplates type={"Brahmanandam"} />
+          <MemeTemplates />
         </View>
       </ScrollView>
     </View>
-  )
+  );
 }

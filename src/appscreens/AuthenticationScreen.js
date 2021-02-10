@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Image,
   ImageBackground,
@@ -40,8 +40,8 @@ const LoginScreen = () => {
             {veiwlogin ? (
               <Text style={styles.text}>Login</Text>
             ) : (
-              <Text style={styles.fade}>Login</Text>
-            )}
+                <Text style={styles.fade}>Login</Text>
+              )}
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
@@ -50,14 +50,14 @@ const LoginScreen = () => {
             {!veiwlogin ? (
               <Text style={styles.text}>SignUp</Text>
             ) : (
-              <Text style={styles.fade}>SignUp</Text>
-            )}
+                <Text style={styles.fade}>SignUp</Text>
+              )}
           </TouchableOpacity>
         </View>
         {veiwlogin ? <Login /> : <SignUp />}
         <TouchableOpacity
           onPress={() => {
-            setState({userLoggedIn: true});
+            setState({ userLoggedIn: true });
           }}>
           <Text style={styles.skip}>Skip For Login?</Text>
         </TouchableOpacity>

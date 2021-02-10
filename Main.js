@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Login from './src/services/Authentication/components/Login';
 import BottomNavigators from './src/shared/Navigators/BottomNavigators';
 import {
@@ -10,7 +10,7 @@ import AuthenticationScreen from './src/appscreens/AuthenticationScreen';
 
 function Main() {
   const [state] = useContext(Context);
-  const {userLoggedIn} = state;
+  const { userLoggedIn } = state;
   //   console.log(state, state.userLoggedIn, userLoggedIn, 'hello');
   // console.log(userLoggedIn);
   if (userLoggedIn) {
