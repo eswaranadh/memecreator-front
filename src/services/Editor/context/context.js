@@ -5,7 +5,7 @@ const Context = React.createContext();
 
 const ContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  // console.log('context', state);
   return (
     <Context.Provider value={[state, dispatch]}>
       {props.children}
