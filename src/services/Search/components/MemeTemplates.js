@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -7,15 +7,15 @@ import {
   SafeAreaView,
   ActivityIndicator,
 } from 'react-native';
-import {Card} from 'react-native-paper';
+import { Card } from 'react-native-paper';
 import MemeTemplatesStyles from '../styles/MemeTemplatesStyles';
 import axios from 'axios';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 export default function MemeTemplates(props) {
   const navigation = useNavigation();
-  const {route = {}} = props;
-  const {params = {}} = route;
-  const {fullView = false} = params;
+  const { route = {} } = props;
+  const { params = {} } = route;
+  const { fullView = false } = params;
   const [memes, setMemes] = useState('');
   useEffect(() => {
     axios
@@ -46,13 +46,13 @@ export default function MemeTemplates(props) {
       ) : null}
 
       <ScrollView horizontal={!fullView}>
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{ flex: 1 }}>
           <View>
             <FlatList
               numColumns={fullView ? 2 : 10}
               scrollEnabled={true}
-              data={fullView ? dummy : dummy.slice(0, 10)}
-              renderItem={({item}) => (
+              data={fullView ? memes : memes.slice(0, 10)}
+              renderItem={({ item }) => (
                 <Card
                   onPress={() =>
                     navigation.navigate('PreviewScreen', {
@@ -60,17 +60,17 @@ export default function MemeTemplates(props) {
                     })
                   }
                   style={MemeTemplatesStyles.cardStyles}>
-                  <Card.Cover source={{uri: item.imageURL}} />
+                  <Card.Cover source={{ uri: item.imageURL }} />
                 </Card>
               )}
               keyExtractor={(item) => item.id}
-              // ListFooterComponent={
-              //   <View style={MemeTemplatesStyles.loader}>
-              //     <Text style={MemeTemplatesStyles.headContentOne}>
-              //       Loading...
-              //     </Text>
-              //   </View>
-              // }
+            // ListFooterComponent={
+            //   <View style={MemeTemplatesStyles.loader}>
+            //     <Text style={MemeTemplatesStyles.headContentOne}>
+            //       Loading...
+            //     </Text>
+            //   </View>
+            // }
             />
           </View>
         </SafeAreaView>

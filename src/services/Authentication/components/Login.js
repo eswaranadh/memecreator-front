@@ -26,9 +26,7 @@ const Login = () => {
       />
       <FormButton
         buttonTitle="Sign In"
-        onPress={() => {
-          setState({ userLoggedIn: true });
-        }}
+        onPress={() => { }}
       />
     </View>
   );
