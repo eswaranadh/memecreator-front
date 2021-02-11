@@ -1,13 +1,13 @@
-import React, {useContext, useState} from 'react';
-import {View} from 'react-native';
-import {IconButton} from 'react-native-paper';
-import {Context} from '../../context/context';
+import React, { useContext, useState } from 'react';
+import { View } from 'react-native';
+import { IconButton } from 'react-native-paper';
+import { Context } from '../../../../appcontext/context';
 import Share from 'react-native-share';
 import ImgToBase64 from 'react-native-image-base64';
 
 export default function ShareImage(props) {
   const [state, dispatch] = useContext(Context);
-  const {imageURL} = state;
+  const { imageURL } = state;
   const [base64, setBase64] = useState('');
 
   const handleShare = async () => {

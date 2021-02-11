@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 function SignUp() {
   const [email, setEmail] = useState();
@@ -33,9 +33,7 @@ function SignUp() {
       />
       <FormButton
         buttonTitle="Sign Up"
-        onPress={() => {
-          setState({userLoggedIn: true});
-        }}
+        onPress={() => { }}
       />
     </View>
   );

@@ -11,7 +11,7 @@ import Logo from '../../assets/logo.png';
 import {
   Context,
   ContextProvider,
-} from '../services/Authentication/context/context';
+} from '../appcontext/context';
 import Wrapper from '../shared/GeneralComponents/Wrapper';
 import Loginbg from '../../assets/loginbg.jpg';
 import Login from '../services/Authentication/components/Login';
@@ -23,7 +23,7 @@ const LoginScreen = () => {
   const setState = (obj) => {
     // console.log(obj);
     dispatch({
-      type: 'SET_STATE',
+      type: 'SET_AUTH_STATE',
       payload: obj,
     });
   };
@@ -57,7 +57,7 @@ const LoginScreen = () => {
         {veiwlogin ? <Login /> : <SignUp />}
         <TouchableOpacity
           onPress={() => {
-            setState({ userLoggedIn: true });
+            setState({ isLoggedIn: true });
           }}>
           <Text style={styles.skip}>Skip For Login?</Text>
         </TouchableOpacity>
@@ -66,7 +66,7 @@ const LoginScreen = () => {
   );
 };
 
-export default Wrapper(ContextProvider, LoginScreen);
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {

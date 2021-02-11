@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
-import {IconButton,Snackbar} from 'react-native-paper';
-import {Context} from '../../context/context';
+import React, { useContext } from 'react';
+import { IconButton, Snackbar } from 'react-native-paper';
+import { Context } from '../../../../appcontext/context';
 import {
   View,
   PermissionsAndroid,
@@ -11,7 +11,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 export default function DownloadImage() {
 
   const [state, dispatch] = useContext(Context);
-  const {imageURL} = state;
+  const { imageURL } = state;
 
   const checkPermission = async () => {
     if (Platform.OS === 'ios') {
@@ -42,11 +42,11 @@ export default function DownloadImage() {
   };
 
   const downloadImage = () => {
-        
+
     // To add the time suffix in filename
     let date = new Date();
     // Image URL which we want to download
-    let image_URL = imageURL;    
+    let image_URL = imageURL;
     // Getting the extention of the file
     let ext = getExtention(image_URL);
     ext = '.' + ext[0];
@@ -63,7 +63,7 @@ export default function DownloadImage() {
         notification: true,
         path:
           PictureDir +
-          '/image_' + 
+          '/image_' +
           Math.floor(date.getTime() + date.getSeconds() / 2) +
           ext,
         description: 'Image',
@@ -82,7 +82,7 @@ export default function DownloadImage() {
   const getExtention = filename => {
     // To get the file extension
     return /[.]/.exec(filename) ?
-             /[^.]+$/.exec(filename) : undefined;
+      /[^.]+$/.exec(filename) : undefined;
   };
 
 

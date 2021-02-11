@@ -1,9 +1,15 @@
 import React from 'react';
-import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
-import {NavigationContainer} from '@react-navigation/native';
+import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from './src/appscreens/SplashScreen';
+import {
+  Context,
+  ContextProvider,
+} from "./src/appcontext/context";
+import Wrapper from './src/shared/GeneralComponents/Wrapper';
 
-export default function App() {
+function App() {
+
   const theme = {
     ...DefaultTheme,
     roundness: 8,
@@ -24,3 +30,5 @@ export default function App() {
     </PaperProvider>
   );
 }
+
+export default Wrapper(ContextProvider, App)

@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
 import reducer from './reducer';
 import initialState from './state';
 const Context = React.createContext();
@@ -13,4 +13,4 @@ const ContextProvider = (props) => {
   );
 };
 
-export {Context, ContextProvider};
+export { Context, ContextProvider };
