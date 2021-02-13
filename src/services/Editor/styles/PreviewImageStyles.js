@@ -1,12 +1,11 @@
-import { StyleSheet } from 'react-native'
-import { windowHeight, windowWidth } from '../../../utils/Dimensions';
+import {StyleSheet} from 'react-native';
+import {windowHeight, windowWidth} from '../../../utils/Dimensions';
 
 export default StyleSheet.create({
   container: {
     flexDirection: 'column',
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     margin: 5,
-
   },
   imageStyles: {
     width: windowWidth,
@@ -14,7 +13,5 @@ export default StyleSheet.create({
     height: windowWidth,
   },
 
-  imageContainer: {
-
-  }
+  imageContainer: {},
 });
