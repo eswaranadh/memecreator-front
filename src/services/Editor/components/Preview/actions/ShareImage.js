@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { View } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import { Context } from '../../../../appcontext/context';
+import { Context } from '../../../../../appcontext/context';
 import Share from 'react-native-share';
 import ImgToBase64 from 'react-native-image-base64';
 
