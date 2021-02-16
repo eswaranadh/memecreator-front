@@ -1,7 +1,7 @@
 import React, { useContext, Component } from 'react';
 import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import { Card } from 'react-native-paper';
-import { windowWidth } from '../../../../utils/Dimensions';
+import { windowHeight, windowWidth } from '../../../../utils/Dimensions';
 import { Context } from '../../../../appcontext/context';
 import Draggable from 'react-native-draggable';
 import ViewShot from "react-native-view-shot";
@@ -66,16 +66,49 @@ export default class EditImage extends Component {
     const [state, dispatch] = this.context
     const { editingDetails } = state.editor
     const { imageURL } = state.editor.selectedImage;
+    const content = editingDetails.content
+    const setState = (obj) => {
+      dispatch({
+        type: 'SET_EDITOR_STATE',
+        payload: obj,
+      });
+    };
+
     return (
       <View>
         <ViewShot ref={"viewShot"} options={{ format: "jpg", quality: 0.9 }}>
           <Image source={{ uri: imageURL }} style={styles.image} />
-          <Draggable
-            x={0}
-            y={0}
-            renderColor='red'
-            renderText='B'
-          />
+          {
+            content.map((item, index) => {
+              return (
+                <Draggable
+                  key={index}
+                  x={item.position.x}
+                  y={item.position.y}
+                  onShortPressRelease={() => {
+                    setState({
+                      editingDetails: {
+                        ...state.editor.editingDetails,
+                        editingText: item.text,
+                        selectedContentIndex: index,
+                        isEditing: true
+                      }
+                    })
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: item.fontColor,
+                      backgroundColor: item.backgroundColor,
+                      ...styles.labelStyles
+                    }}
+                  >
+                    {item.text}
+                  </Text>
+                </Draggable>
+              )
+            })
+          }
         </ViewShot>
         {/* <Button
           title="download"
@@ -86,45 +119,14 @@ export default class EditImage extends Component {
   }
 }
 
-// export default function EditImage(props) {
-//   const [state, dispatch] = useContext(Context);
-//   const ref1 = useRef("viewShot");
-//   const { editingDetails } = state.editor
-//   const { imageURL } = state.editor.selectedImage;
-//   const onCapture = uri => {
-//     console.log("do something with ", uri);
-//   }
-
-//   const onButtonClick = () => {
-//     // `current` points to the mounted text input element
-//     ref1.capture()
-//       .then(uri => {
-//         console.log("Path to the image: ", uri);
-//       })
-//   };
-//   return (
-//     <View>
-//       <ViewShot ref={ref1} options={{ format: "jpg", quality: 0.9 }}>
-//         <Image source={{ uri: imageURL }} style={styles.image} />
-//         <Draggable
-//           x={0}
-//           y={0}
-//           renderColor='red'
-//           renderText='B'
-//         />
-//       </ViewShot>
-//       <Button
-//         title="download"
-//         onPress={onButtonClick}
-//       />
-//     </View>
-//   );
-// }
-
 const styles = StyleSheet.create({
   image: {
     width: windowWidth,
     resizeMode: 'contain',
     height: windowWidth,
+  },
+  labelStyles: {
+    padding: 10,
+    borderRadius: 5
   }
 })
