@@ -8,5 +8,18 @@ export default {
   editor: {
     imageURL: '',
     base64Image: ``,
+    selectedImage: {
+      imageURL: "",
+      title: "",
+      extension: ""
+    },
+    editingDetails: {
+      content: {
+        0: {
+
+        }
+      },
+      selectedContentIndex: 0
+    }
   }
 };

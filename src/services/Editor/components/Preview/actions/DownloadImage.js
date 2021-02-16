@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { IconButton, Snackbar } from 'react-native-paper';
-import { Context } from '../../../../appcontext/context';
+import { Context } from '../../../../../appcontext/context';
 import {
   View,
   PermissionsAndroid,
@@ -11,7 +11,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 export default function DownloadImage() {
 
   const [state, dispatch] = useContext(Context);
-  const { imageURL } = state;
+  const { imageURL } = state.editor.selectedImage;
 
   const checkPermission = async () => {
     if (Platform.OS === 'ios') {
