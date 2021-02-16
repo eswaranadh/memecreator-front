@@ -1,17 +1,17 @@
 import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PreviewImage from '../services/Editor/components/PreviewImage';
+import PreviewImage from '../services/Editor/components/Preview/PreviewImage';
 import { Context } from "../appcontext/context";
-import DownloadImage from '../services/Editor/components/actions/DownloadImage';
-import ShareImage from '../services/Editor/components/actions/ShareImage';
-import EditImage from '../services/Editor/components/actions/EditImage';
+import DownloadImage from '../services/Editor/components/Preview/actions/DownloadImage';
+import ShareImage from '../services/Editor/components/Preview/actions/ShareImage';
+import EditImage from '../services/Editor/components/Preview/actions/EditImage';
 import ImgToBase64 from 'react-native-image-base64';
 
 function PreviewScreen(props) {
   const [state, dispatch] = useContext(Context);
   const { route = {} } = props;
   const { params = {} } = route;
-  const { imageURL } = params;
+  const { selectedImage } = params;
   const setState = (obj) => {
     dispatch({
       type: 'SET_EDITOR_STATE',
@@ -28,13 +28,13 @@ function PreviewScreen(props) {
     //   })
     //   .catch((err) => console.log(err));
     setState({
-      imageURL: imageURL,
+      selectedImage: selectedImage,
     });
-  }, [imageURL]);
+  }, [JSON.stringify(selectedImage)]);
   return (
     <View>
       <View>
-        <PreviewImage imageURL={imageURL} />
+        <PreviewImage />
       </View>
       <View style={styles.previewButtons}>
         <Text>
