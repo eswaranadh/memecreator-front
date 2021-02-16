@@ -14,12 +14,21 @@ export default {
       extension: ""
     },
     editingDetails: {
-      content: {
-        0: {
-
+      content: [
+        {
+          text: "Top",
+          fontSize: "",
+          fontColor: "black",
+          backgroundColor: "white",
+          position: {
+            x: 0,
+            y: 0
+          }
         }
-      },
-      selectedContentIndex: 0
+      ],
+      editingText: "",
+      selectedContentIndex: 0,
+      isEditing: false
     }
   }
 };
