@@ -37,7 +37,6 @@ export default function ShareImage(props) {
     <View>
       <IconButton
         icon="share"
-        color={'white'}
         size={30}
         onPress={handleShare}
       />

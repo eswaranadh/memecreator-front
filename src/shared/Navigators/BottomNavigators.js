@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SearchStackScreen} from './StackNavigators';
+import { SearchStackScreen } from './StackNavigators';
 import InProgress from '../GeneralComponents/InProgress';
 // import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import Entypo from 'react-native-vector-icons/Entypo';
 // import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import {BottomNavigation} from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 
 // const Tab = createBottomTabNavigator();
 const HomeRoute = () => <InProgress />;
@@ -17,9 +17,9 @@ const ProfileRoute = () => <InProgress />;
 export default function MyTabs() {
   const [index, setIndex] = React.useState(1);
   const [routes] = React.useState([
-    {key: 'home', title: 'Home', icon: 'home'},
-    {key: 'search', title: 'Search', icon: 'image-search-outline'},
-    {key: 'profile', title: 'Profile', icon: 'account'},
+    { key: 'home', title: 'Home', icon: 'home' },
+    { key: 'search', title: 'Search', icon: 'image-search-outline' },
+    { key: 'profile', title: 'Profile', icon: 'account' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
@@ -30,10 +30,10 @@ export default function MyTabs() {
 
   return (
     <BottomNavigation
-      navigationState={{index, routes}}
+      navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
-      barStyle={{backgroundColor: '#000'}}
+      barStyle={{ backgroundColor: '#fff' }}
       shifting={true}
     />
 

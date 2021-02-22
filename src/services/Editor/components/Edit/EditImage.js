@@ -100,7 +100,8 @@ export default class EditImage extends Component {
                     style={{
                       color: item.fontColor,
                       backgroundColor: item.backgroundColor,
-                      ...styles.labelStyles
+                      ...styles.labelStyles,
+                      fontSize: item.fontSize
                     }}
                   >
                     {item.text}

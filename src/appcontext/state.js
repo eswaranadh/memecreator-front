@@ -17,7 +17,7 @@ export default {
       content: [
         {
           text: "Top",
-          fontSize: "",
+          fontSize: 10,
           fontColor: "black",
           backgroundColor: "white",
           position: {

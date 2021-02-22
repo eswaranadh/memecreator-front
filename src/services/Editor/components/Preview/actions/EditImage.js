@@ -10,7 +10,6 @@ export default function DownloadImage() {
     <View>
       <IconButton
         icon="image-edit-outline"
-        color={'white'}
         size={30}
         onPress={() => navigation.navigate("EditImageScreen")}
       />

@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {windowWidth} from '../../../utils/Dimensions';
+import { StyleSheet } from 'react-native';
+import { windowWidth } from '../../../utils/Dimensions';
 
 export default StyleSheet.create({
   container: {

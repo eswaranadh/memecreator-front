@@ -29,7 +29,7 @@ export default function AddText() {
     const randomY = Math.floor((Math.random() * 100) + 1);
     const newLabel = {
       text: state.editor.editingDetails.editingText,
-      fontSize: "",
+      fontSize: 10,
       fontColor: "black",
       backgroundColor: "white",
       position: {
