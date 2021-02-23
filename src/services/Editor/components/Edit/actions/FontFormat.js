@@ -10,6 +10,7 @@ export default function FontFormat() {
   const [visible, setVisible] = React.useState(false);
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
+  const isTransparent = state.editor.editingDetails.isTransparent;
 
   return (
     <View>
@@ -23,9 +24,7 @@ export default function FontFormat() {
           visible={visible}
           onDismiss={hideDialog}
           style={{
-            backgroundColor: state.editor.editingDetails.isTransparent
-              ? 'transparent'
-              : 'white',
+            backgroundColor: isTransparent ? '#b8b8b850' : 'white',
           }}>
           <Dialog.Content>
             <View>
