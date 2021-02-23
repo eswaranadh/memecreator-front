@@ -1,31 +1,80 @@
-import React, { useContext, useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, {useContext, useEffect, useState} from 'react';
+import {View, Switch, StyleSheet} from 'react-native';
 import Slider from '@react-native-community/slider';
-import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons"
-import FoundationIcons from "react-native-vector-icons/Foundation"
-import { Context } from '../../../../../appcontext/context';
-
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FoundationIcons from 'react-native-vector-icons/Foundation';
+import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
+import {Context} from '../../../../../appcontext/context';
+import {windowHeight, windowWidth} from '../../../../../utils/Dimensions';
 
 export default function Font() {
-  const [state] = useContext(Context)
-  const editorState = state.editor
-  const selectedItem = state.editor.editingDetails.content[editorState.editingDetails.selectedContentIndex]
-  const [size, setSize] = useState(selectedItem.fontSize)
-  console.log(size);
+  const [state, dispatch] = useContext(Context);
+  const editorState = state.editor;
+  const setState = (obj) => {
+    dispatch({
+      type: 'SET_EDITOR_STATE',
+      payload: obj,
+    });
+  };
+  const isTransparent = editorState.editingDetails.isTransparent;
+  const toggleSwitch = () =>
+    setState({
+      ...editorState,
+      editingDetails: {
+        ...editorState.editingDetails,
+        isTransparent: !isTransparent,
+      },
+    });
+  const selectedItem =
+    state.editor.editingDetails.content[
+      editorState.editingDetails.selectedContentIndex
+    ];
+  const [size, setSize] = useState(selectedItem.fontSize);
+  const [stroke, setStroke] = useState(selectedItem.textShadowRadius);
+  const [width, setWidth] = useState(selectedItem.width);
+  console.log(size, stroke);
+
+  useEffect(() => {
+    const selectedContentIndex =
+      editorState.editingDetails.selectedContentIndex;
+    const existingLabel =
+      editorState.editingDetails.content[selectedContentIndex];
+    const modifiedLabel = {
+      ...existingLabel,
+      textShadowRadius: stroke,
+      fontSize: size,
+      width: width,
+    };
+    let existingContent = editorState.editingDetails.content;
+    existingContent[selectedContentIndex] = modifiedLabel;
+    setState({
+      ...editorState,
+      editingDetails: {
+        ...editorState.editingDetails,
+        content: existingContent,
+      },
+    });
+  }, [size, stroke, width]);
+
   return (
     <View>
-      <View style={styles.textPreview} >
-        <Text style={{ fontSize: size }} >
+      {/* <View style={styles.textPreview}>
+        <Text
+          style={{
+            fontSize: size,
+            textShadowRadius: stroke,
+            textShadowColor: 'black',
+          }}>
           {selectedItem.text}
         </Text>
-      </View>
-      <View style={styles.container} >
+      </View> */}
+      <View style={styles.container}>
         <View style={styles.label}>
           <MaterialIcons size={25} name="format-font-size-increase" />
         </View>
-        <View style={styles.slider} >
+        <View style={styles.slider}>
           <Slider
-            style={{ height: 20 }}
+            style={{height: 20}}
             minimumValue={0}
             maximumValue={100}
             minimumTrackTintColor="#6562c4"
@@ -33,43 +82,70 @@ export default function Font() {
             thumbTintColor="#9896d4"
             onValueChange={(val) => setSize(val)}
             step={1}
+            value={size}
           />
         </View>
       </View>
-      <View style={styles.container} >
+      <View style={styles.container}>
         <View style={styles.label}>
           <FoundationIcons size={25} name="bold" />
         </View>
-        <View style={styles.slider} >
+        <View style={styles.slider}>
           <Slider
-            style={{ height: 20 }}
+            style={{height: 20}}
             minimumValue={0}
-            maximumValue={1}
+            maximumValue={13}
             minimumTrackTintColor="#6562c4"
             maximumTrackTintColor="#000000"
             thumbTintColor="#9896d4"
+            onValueChange={(val) => setStroke(val)}
+            step={0.5}
+            value={stroke}
           />
         </View>
       </View>
-
-
+      <View style={styles.container}>
+        <View style={styles.label}>
+          <FontAwesomeIcons size={18} name="text-width" />
+        </View>
+        <View style={styles.slider}>
+          <Slider
+            style={{height: 20}}
+            minimumValue={0}
+            maximumValue={windowWidth}
+            minimumTrackTintColor="#6562c4"
+            maximumTrackTintColor="#000000"
+            thumbTintColor="#9896d4"
+            onValueChange={(val) => setWidth(val)}
+            step={1}
+            value={width}
+          />
+        </View>
+      </View>
+      <View>
+        <Switch
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isTransparent ? '#f5dd4b' : '#f4f3f4'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isTransparent}
+        />
+      </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  textPreview: {
-
-  },
+  textPreview: {},
   container: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center"
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   label: {
-    flex: 1
+    flex: 1,
   },
   slider: {
-    flex: 7
-  }
-})
+    flex: 7,
+  },
+});
