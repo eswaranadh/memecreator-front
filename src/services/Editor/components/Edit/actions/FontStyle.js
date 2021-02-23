@@ -14,14 +14,14 @@ export default function FontFormat() {
     <View>
       <BoxButton
         onPress={showDialog}
-        ButtonContent={<MaterialIcons size={25} name="format-text" />}
-        style={{backgroundColor: "#7db7db"}}
+        ButtonContent={<MaterialIcons size={25} name="format-font"/>}
+        style={{backgroundColor: "#e8d087"}}
       />
       <Portal>
         <Dialog visible={visible} onDismiss={hideDialog}>
           <Dialog.Content>
             <View>
-              <Font />
+              <Text>Font Styles</Text>
             </View>
           </Dialog.Content>
         </Dialog>
