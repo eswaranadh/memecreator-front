@@ -16,10 +16,7 @@ function App() {
 
     colors: {
       ...DefaultTheme.colors,
-      primary: '#280071',
-      accent: '#f1c40f',
     },
-    dark: true,
   };
 
   return (

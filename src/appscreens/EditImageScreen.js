@@ -7,10 +7,10 @@ function EditImageScreen() {
   return (
     <View style={styles.container} >
       <View>
-        <EditActions />
+        <EditImage />
       </View>
       <View>
-        <EditImage />
+        <EditActions />
       </View>
     </View>
   );

@@ -90,7 +90,6 @@ export default function DownloadImage() {
     <View>
       <IconButton
         icon="download"
-        color={'white'}
         size={30}
         onPress={checkPermission}
       />

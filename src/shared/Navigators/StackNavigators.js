@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 // import Login from '../../services/Authentication/components/Login';
 // import Categories from "../../services/Templates/components/Categories"
 // import CategoryDetails from "../../services/Templates/components/CategoryDetails"
@@ -15,12 +15,12 @@ export function SearchStackScreen() {
   return (
     <HomeStack.Navigator
       screenOptions={{
-        cardStyle: {
-          backgroundColor: '#121212',
-        },
-        headerStyle: {
-          backgroundColor: '#282828',
-        },
+        // cardStyle: {
+        //   backgroundColor: '#121212',
+        // },
+        // headerStyle: {
+        //   backgroundColor: '#282828',
+        // },
         headerTitleStyle: {
           color: 'white',
         },

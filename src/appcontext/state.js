@@ -1,34 +1,37 @@
 export default {
   authentication: {
-    isLoggedIn: false
+    isLoggedIn: false,
   },
   search: {
-    searchQuery: ""
+    searchQuery: '',
   },
   editor: {
     imageURL: '',
     base64Image: ``,
     selectedImage: {
-      imageURL: "",
-      title: "",
-      extension: ""
+      imageURL: '',
+      title: '',
+      extension: '',
     },
     editingDetails: {
       content: [
         {
-          text: "Top",
-          fontSize: "",
-          fontColor: "black",
-          backgroundColor: "white",
+          text: 'Top',
+          textShadowRadius: 1,
+          fontSize: 10,
+          fontColor: 'black',
+          backgroundColor: 'white',
+          width: 50,
           position: {
             x: 0,
-            y: 0
-          }
-        }
+            y: 0,
+          },
+        },
       ],
-      editingText: "",
-      selectedContentIndex: 0,
-      isEditing: false
-    }
-  }
+      editingText: '',
+      selectedContentIndex: null,
+      isEditing: false,
+      isTransparent: false,
+    },
+  },
 };
