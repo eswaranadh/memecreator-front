@@ -4,7 +4,6 @@ import {Dialog, Portal, Text, Button, Paragraph} from 'react-native-paper';
 import {Context} from '../../../../../appcontext/context';
 import BoxButton from '../../../../../shared/GeneralComponents/BoxButton';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Font from '../additionalcomponents/Font';
 export default function FontFormat() {
   const [state, dispatch] = useContext(Context);
   const editorState = state.editor;

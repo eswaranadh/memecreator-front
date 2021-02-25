@@ -2,13 +2,11 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
-import TextInputs from '../../../shared/GeneralComponents/Customs/Inputs/TextInputs';
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   return (
     <View style={styles.loginstyle}>
-      <TextInputs />
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
