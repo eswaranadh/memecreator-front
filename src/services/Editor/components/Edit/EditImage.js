@@ -101,6 +101,7 @@ export default class EditImage extends Component {
                     textShadowRadius: item.textShadowRadius,
                     width: item.width,
                     textAlign: 'center',
+                    fontFamily: item.fontFamily,
                   }}>
                   {item.text}
                 </Text>
