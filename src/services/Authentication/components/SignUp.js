@@ -44,9 +44,10 @@ export default SignUp;
 const styles = StyleSheet.create({
   signupstyle: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: 12,
     padding: 20,
     alignItems: 'center',
+    elevation:1
   },
 });

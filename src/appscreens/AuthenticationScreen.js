@@ -30,7 +30,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={Loginbg} style={styles.image}>
+      {/* <ImageBackground source={Loginbg} style={styles.image}> */}
         <Image source={Logo} style={styles.logo} />
         <View style={styles.veiwcontainer}>
           <TouchableOpacity
@@ -61,7 +61,7 @@ const LoginScreen = () => {
           }}>
           <Text style={styles.skip}>Skip For Login?</Text>
         </TouchableOpacity>
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </View>
   );
 };
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Kufam-SemiBoldItalic',
     fontSize: 22,
     marginBottom: 10,
-    color: '#fff',
+    color: '#333',
   },
   veiwcontainer: {
     display: 'flex',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   skip: {
     marginTop: 50,
-    color: '#fff',
+    color: '#333',
     fontSize: 16,
     alignSelf: 'center',
   },

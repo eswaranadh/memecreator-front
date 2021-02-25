@@ -8,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState();
   return (
     <View style={styles.loginstyle}>
+     
       <FormInput
         labelValue={email}
         onChangeText={(userEmail) => setEmail(userEmail)}
@@ -38,8 +39,9 @@ const styles = StyleSheet.create({
   loginstyle: {
     padding: 20,
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: 12,
     alignItems: 'center',
+    elevation:3
   },
 });
