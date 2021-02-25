@@ -70,16 +70,20 @@ export default function Font() {
       </View> */}
       <View style={styles.container}>
         <View style={styles.label}>
-          <MaterialIcons size={25} name="format-font-size-increase" />
+          <MaterialIcons
+            size={25}
+            name="format-font-size-increase"
+            color={isTransparent ? 'white' : '#7db7db'}
+          />
         </View>
         <View style={styles.slider}>
           <Slider
             style={{height: 20}}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor="#6562c4"
-            maximumTrackTintColor="#000000"
-            thumbTintColor="#9896d4"
+            minimumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
+            maximumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
+            thumbTintColor={!isTransparent ? '#7db7db' : 'white'}
             onValueChange={(val) => setSize(val)}
             step={1}
             value={size}
@@ -88,16 +92,20 @@ export default function Font() {
       </View>
       <View style={styles.container}>
         <View style={styles.label}>
-          <FoundationIcons size={25} name="bold" />
+          <FoundationIcons
+            size={25}
+            name="bold"
+            color={isTransparent ? 'white' : '#7db7db'}
+          />
         </View>
         <View style={styles.slider}>
           <Slider
             style={{height: 20}}
             minimumValue={0}
             maximumValue={13}
-            minimumTrackTintColor="#6562c4"
-            maximumTrackTintColor="#000000"
-            thumbTintColor="#9896d4"
+            minimumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
+            maximumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
+            thumbTintColor={!isTransparent ? '#7db7db' : 'white'}
             onValueChange={(val) => setStroke(val)}
             step={0.5}
             value={stroke}
@@ -106,16 +114,20 @@ export default function Font() {
       </View>
       <View style={styles.container}>
         <View style={styles.label}>
-          <FontAwesomeIcons size={18} name="text-width" />
+          <FontAwesomeIcons
+            size={18}
+            name="text-width"
+            color={isTransparent ? 'white' : '#7db7db'}
+          />
         </View>
         <View style={styles.slider}>
           <Slider
             style={{height: 20}}
             minimumValue={0}
             maximumValue={windowWidth}
-            minimumTrackTintColor="#6562c4"
-            maximumTrackTintColor="#000000"
-            thumbTintColor="#9896d4"
+            minimumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
+            maximumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
+            thumbTintColor={!isTransparent ? '#7db7db' : 'white'}
             onValueChange={(val) => setWidth(val)}
             step={1}
             value={width}
@@ -124,8 +136,8 @@ export default function Font() {
       </View>
       <View>
         <Switch
-          trackColor={{false: '#767577', true: '#81b0ff'}}
-          thumbColor={isTransparent ? '#f5dd4b' : '#f4f3f4'}
+          trackColor={{false: '#767577', true: '#f4f3f4'}}
+          thumbColor={isTransparent ? '#767577' : '#f4f3f4'}
           ios_backgroundColor="#3e3e3e"
           onValueChange={toggleSwitch}
           value={isTransparent}

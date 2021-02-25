@@ -32,6 +32,7 @@ export default function AddText() {
       fontSize: 10,
       fontColor: 'black',
       backgroundColor: 'white',
+      fontFamily: 'Entypo',
       position: {
         x: randomX,
         y: randomY,
