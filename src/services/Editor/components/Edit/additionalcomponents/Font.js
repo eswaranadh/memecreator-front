@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {View, Switch, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Slider from '@react-native-community/slider';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FoundationIcons from 'react-native-vector-icons/Foundation';
@@ -16,15 +16,6 @@ export default function Font() {
       payload: obj,
     });
   };
-  const isTransparent = editorState.editingDetails.isTransparent;
-  const toggleSwitch = () =>
-    setState({
-      ...editorState,
-      editingDetails: {
-        ...editorState.editingDetails,
-        isTransparent: !isTransparent,
-      },
-    });
   const selectedItem =
     state.editor.editingDetails.content[
       editorState.editingDetails.selectedContentIndex
@@ -58,22 +49,12 @@ export default function Font() {
 
   return (
     <View>
-      {/* <View style={styles.textPreview}>
-        <Text
-          style={{
-            fontSize: size,
-            textShadowRadius: stroke,
-            textShadowColor: 'black',
-          }}>
-          {selectedItem.text}
-        </Text>
-      </View> */}
       <View style={styles.container}>
         <View style={styles.label}>
           <MaterialIcons
             size={25}
             name="format-font-size-increase"
-            color={isTransparent ? 'white' : '#7db7db'}
+            color="#7db7db"
           />
         </View>
         <View style={styles.slider}>
@@ -81,9 +62,9 @@ export default function Font() {
             style={{height: 20}}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
-            maximumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
-            thumbTintColor={!isTransparent ? '#7db7db' : 'white'}
+            minimumTrackTintColor="#7db7db"
+            maximumTrackTintColor="#7db7db"
+            thumbTintColor="#7db7db"
             onValueChange={(val) => setSize(val)}
             step={1}
             value={size}
@@ -92,20 +73,16 @@ export default function Font() {
       </View>
       <View style={styles.container}>
         <View style={styles.label}>
-          <FoundationIcons
-            size={25}
-            name="bold"
-            color={isTransparent ? 'white' : '#7db7db'}
-          />
+          <FoundationIcons size={25} name="bold" color="#7db7db" />
         </View>
         <View style={styles.slider}>
           <Slider
             style={{height: 20}}
             minimumValue={0}
             maximumValue={13}
-            minimumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
-            maximumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
-            thumbTintColor={!isTransparent ? '#7db7db' : 'white'}
+            minimumTrackTintColor="#7db7db"
+            maximumTrackTintColor="#7db7db"
+            thumbTintColor="#7db7db"
             onValueChange={(val) => setStroke(val)}
             step={0.5}
             value={stroke}
@@ -114,34 +91,21 @@ export default function Font() {
       </View>
       <View style={styles.container}>
         <View style={styles.label}>
-          <FontAwesomeIcons
-            size={18}
-            name="text-width"
-            color={isTransparent ? 'white' : '#7db7db'}
-          />
+          <FontAwesomeIcons size={18} name="text-width" color="#7db7db" />
         </View>
         <View style={styles.slider}>
           <Slider
             style={{height: 20}}
             minimumValue={0}
             maximumValue={windowWidth}
-            minimumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
-            maximumTrackTintColor={!isTransparent ? '#7db7db' : 'white'}
-            thumbTintColor={!isTransparent ? '#7db7db' : 'white'}
+            minimumTrackTintColor="#7db7db"
+            maximumTrackTintColor="#7db7db"
+            thumbTintColor="#7db7db"
             onValueChange={(val) => setWidth(val)}
             step={1}
             value={width}
           />
         </View>
-      </View>
-      <View>
-        <Switch
-          trackColor={{false: '#767577', true: '#f4f3f4'}}
-          thumbColor={isTransparent ? '#767577' : '#f4f3f4'}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isTransparent}
-        />
       </View>
     </View>
   );

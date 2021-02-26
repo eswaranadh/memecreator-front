@@ -31,7 +31,10 @@ export default {
       editingText: '',
       selectedContentIndex: null,
       isEditing: false,
-      isTransparent: false,
+      isTextSize: false,
+      isColorCOde: false,
+      isAddIamge: false,
+      isFontStyle: false,
     },
   },
 };
