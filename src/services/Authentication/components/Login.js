@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
-
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -24,10 +23,7 @@ const Login = () => {
         iconType="lock"
         secureTextEntry={true}
       />
-      <FormButton
-        buttonTitle="Sign In"
-        onPress={() => { }}
-      />
+      <FormButton buttonTitle="Sign In" onPress={() => {}} />
     </View>
   );
 };
@@ -38,7 +34,7 @@ const styles = StyleSheet.create({
   loginstyle: {
     padding: 20,
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#ebedeb',
     borderRadius: 12,
     alignItems: 'center',
   },

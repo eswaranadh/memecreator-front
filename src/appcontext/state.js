@@ -21,6 +21,7 @@ export default {
           fontSize: 10,
           fontColor: 'black',
           backgroundColor: 'white',
+          fontFamily: 'Entypo',
           width: 50,
           position: {
             x: 0,
