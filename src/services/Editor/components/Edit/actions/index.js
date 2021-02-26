@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Context} from '../../../../../appcontext/context';
-import AddText from './AddText';
 import FontFormat from './FontFormat';
 import ColorCode from './ColorCode';
 import FontStyle from './FontStyle';
@@ -21,9 +20,7 @@ export default function index() {
           <Delete />
         </View>
       )}
-      <View>
-        <AddText />
-      </View>
+      
     </View>
   );
 }

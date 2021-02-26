@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {TextInput, IconButton, Searchbar} from 'react-native-paper';
 import {Context} from '../../../../../appcontext/context';
 import {GetValue, windowWidth} from '../../../../../utils/Dimensions';
-
+import {BoxButton  } from "../../../../../shared/GeneralComponents/BoxButton";
 export default function AddText() {
   const [state, dispatch] = useContext(Context);
   const editorState = state.editor;
@@ -32,7 +32,6 @@ export default function AddText() {
       fontSize: 10,
       fontColor: 'black',
       backgroundColor: 'white',
-      fontFamily: 'Entypo',
       position: {
         x: randomX,
         y: randomY,
@@ -65,9 +64,34 @@ export default function AddText() {
       },
     });
   };
+  const removeText = () =>{
+     
+    setState({
+      editingDetails:{
+        ...state.editor.editingDetails,
+       
+        editingText:'',
+        isEditing:false,
 
+       
+      }
+    })
+  }
   return (
     <View style={styles.container}>
+      
+      <View>
+        <IconButton
+        disabled={!state.editor.editingDetails.editingText.length}
+        icon={editorState.editingDetails.isEditing
+          ? 'check-box-outline'
+          : ''
+        }
+        color={'black'}
+        size={30}
+        onPress={editorState.editingDetails.isEditing ? removeText : addText}
+        />
+      </View>
       <View style={styles.input}>
         <TextInput
           label="Add Text"
@@ -81,7 +105,7 @@ export default function AddText() {
           disabled={!state.editor.editingDetails.editingText.length}
           icon={
             editorState.editingDetails.isEditing
-              ? 'check-circle-outline'
+              ? 'check-box-outline'
               : 'plus-circle-outline'
           }
           color={'black'}
@@ -98,9 +122,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   input: {
-    width: GetValue(80, 'width'),
+    width: GetValue(60, 'width'),
+    
+    
   },
   iconbutton: {
     width: GetValue(20, 'width'),
   },
+ 
 });

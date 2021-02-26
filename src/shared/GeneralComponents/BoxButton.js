@@ -4,7 +4,9 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const BoxButton = ({ ButtonContent, textColor = "#ffffff", style={}, ...details }) => {
   return (
-    <TouchableOpacity {...details} style={{...styles.buttonContainer, ...style}} >
+    <TouchableOpacity {...details} style={{...styles.buttonContainer, ...style}} 
+    disabled={true}
+    >
       <Text style={{ ...styles.buttonText, color: textColor }} >
         {ButtonContent}
       </Text>

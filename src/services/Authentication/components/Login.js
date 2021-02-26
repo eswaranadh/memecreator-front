@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: 12,
     alignItems: 'center',
-    elevation:3
+    elevation:1
   },
 });
