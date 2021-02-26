@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import {View, ScrollView} from 'react-native';
-import {Dialog, Portal, Text, Button, Paragraph} from 'react-native-paper';
+import {View} from 'react-native';
 import {Context} from '../../../../../appcontext/context';
 import BoxButton from '../../../../../shared/GeneralComponents/BoxButton';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 export default function FontFormat() {
   const [state, dispatch] = useContext(Context);
   const editorState = state.editor;
@@ -23,6 +23,8 @@ export default function FontFormat() {
       editingDetails: {
         ...editorState.editingDetails,
         content: presentContent,
+        selectedContentIndex: null,
+        editingText: '',
       },
     });
   };

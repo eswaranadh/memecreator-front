@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
   loginstyle: {
     padding: 20,
     margin: 20,
-    backgroundColor: '#ebedeb',
+    backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: 12,
     alignItems: 'center',
+    elevation: 1,
   },
 });

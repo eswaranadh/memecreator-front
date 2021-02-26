@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import FormInput from '../../../shared/GeneralComponents/FormInput';
 import FormButton from '../../../shared/GeneralComponents/FormButton';
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 function SignUp() {
   const [email, setEmail] = useState();
@@ -31,10 +31,7 @@ function SignUp() {
         iconType="lock"
         secureTextEntry={true}
       />
-      <FormButton
-        buttonTitle="Sign Up"
-        onPress={() => { }}
-      />
+      <FormButton buttonTitle="Sign Up" onPress={() => {}} />
     </View>
   );
 }
@@ -44,9 +41,10 @@ export default SignUp;
 const styles = StyleSheet.create({
   signupstyle: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: 12,
     padding: 20,
     alignItems: 'center',
+    elevation: 1,
   },
 });
