@@ -1,29 +1,35 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View} from 'react-native';
-import {Dialog, Portal, Text} from 'react-native-paper';
+import {Context} from '../../../../../appcontext/context';
 import BoxButton from '../../../../../shared/GeneralComponents/BoxButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 export default function FontFormat() {
-  const [visible, setVisible] = React.useState(false);
-  const showDialog = () => setVisible(true);
-  const hideDialog = () => setVisible(false);
+  const [state, dispatch] = useContext(Context);
+  const setState = (obj) => {
+    dispatch({
+      type: 'SET_EDITOR_STATE',
+      payload: obj,
+    });
+  };
 
   return (
     <View>
       <BoxButton
-        onPress={showDialog}
+        onPress={() => {
+          setState({
+            editingDetails: {
+              ...state.editor.editingDetails,
+              isColorCOde: !state.editor.editingDetails.isColorCOde,
+              isTextSize: false,
+              isAddIamge: false,
+              isFontStyle: false,
+            },
+          });
+        }}
         ButtonContent={<Ionicons size={25} name="color-palette-outline" />}
         style={{backgroundColor: '#86d67e'}}
       />
-      <Portal>
-        <Dialog visible={visible} onDismiss={hideDialog}>
-          <Dialog.Content>
-            <View>
-              <Text>Hi</Text>
-            </View>
-          </Dialog.Content>
-        </Dialog>
-      </Portal>
     </View>
   );
 }

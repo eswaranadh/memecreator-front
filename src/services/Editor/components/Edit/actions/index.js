@@ -7,6 +7,8 @@ import ColorCode from './ColorCode';
 import FontStyle from './FontStyle';
 import Delete from './Delete';
 import AddImage from './AddImage';
+import ActionsPreview from './ActionsPreview';
+
 export default function index() {
   const [state, dispatch] = useContext(Context);
   const editorState = state.editor;
@@ -21,6 +23,9 @@ export default function index() {
           <Delete />
         </View>
       )}
+      <View>
+        <ActionsPreview />
+      </View>
       <View>
         <AddText />
       </View>
