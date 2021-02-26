@@ -2,7 +2,10 @@ import React, {useState, useContext} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TextInput, IconButton, Searchbar} from 'react-native-paper';
 import {Context} from '../../../../../appcontext/context';
+import BoxButton from '../../../../../shared/GeneralComponents/BoxButton';
 import {GetValue, windowWidth} from '../../../../../utils/Dimensions';
+import FeatherIcons from 'react-native-vector-icons/Feather';
+import EntypoIcons from 'react-native-vector-icons/Entypo';
 
 export default function AddText() {
   const [state, dispatch] = useContext(Context);
@@ -24,28 +27,29 @@ export default function AddText() {
   };
 
   const addText = () => {
-    const existingFields = state.editor.editingDetails.content;
-    const randomX = Math.floor(Math.random() * 100 + 1);
-    const randomY = Math.floor(Math.random() * 100 + 1);
-    const newLabel = {
-      text: state.editor.editingDetails.editingText,
-      fontSize: 10,
-      fontColor: 'black',
-      backgroundColor: 'white',
-      fontFamily: 'Entypo',
-      position: {
-        x: randomX,
-        y: randomY,
-      },
-    };
-    existingFields.push(newLabel);
-    setState({
-      editingDetails: {
-        ...state.editor.editingDetails,
-        content: existingFields,
-      },
-    });
-    setText('');
+    if (state.editor.editingDetails.editingText.length > 0) {
+      const existingFields = state.editor.editingDetails.content;
+      const randomX = Math.floor(Math.random() * 100 + 1);
+      const randomY = Math.floor(Math.random() * 100 + 1);
+      const newLabel = {
+        text: state.editor.editingDetails.editingText,
+        fontSize: 10,
+        fontColor: 'black',
+        backgroundColor: 'white',
+        position: {
+          x: randomX,
+          y: randomY,
+        },
+      };
+      existingFields.push(newLabel);
+      setState({
+        editingDetails: {
+          ...state.editor.editingDetails,
+          content: existingFields,
+        },
+      });
+      setText('');
+    }
   };
 
   const modifyText = () => {
@@ -65,9 +69,26 @@ export default function AddText() {
       },
     });
   };
-
+  const removeText = () => {
+    setState({
+      editingDetails: {
+        ...state.editor.editingDetails,
+        editingText: '',
+        isEditing: false,
+        selectedContentIndex: null,
+      },
+    });
+  };
   return (
     <View style={styles.container}>
+      <View>
+        <BoxButton
+          onPress={editorState.editingDetails.isEditing ? removeText : addText}
+          ButtonContent={<FeatherIcons size={25} name="x" />}
+          style={{backgroundColor: 'black'}}
+          disabled={!editorState.editingDetails.isEditing}
+        />
+      </View>
       <View style={styles.input}>
         <TextInput
           label="Add Text"
@@ -76,17 +97,18 @@ export default function AddText() {
           onChangeText={(value) => setText(value)}
         />
       </View>
-      <View style={styles.iconbutton}>
-        <IconButton
-          disabled={!state.editor.editingDetails.editingText.length}
-          icon={
-            editorState.editingDetails.isEditing
-              ? 'check-circle-outline'
-              : 'plus-circle-outline'
-          }
-          color={'black'}
-          size={30}
+      <View>
+        <BoxButton
           onPress={editorState.editingDetails.isEditing ? modifyText : addText}
+          ButtonContent={
+            editorState.editingDetails.isEditing ? (
+              <EntypoIcons size={25} color="black" name="check" />
+            ) : (
+              <EntypoIcons size={25} color="black" name="plus" />
+            )
+          }
+          disabled={!state.editor.editingDetails.editingText.length}
+          style={{backgroundColor: 'white'}}
         />
       </View>
     </View>
@@ -96,11 +118,9 @@ export default function AddText() {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   input: {
-    width: GetValue(80, 'width'),
-  },
-  iconbutton: {
-    width: GetValue(20, 'width'),
+    width: GetValue(60, 'width'),
   },
 });

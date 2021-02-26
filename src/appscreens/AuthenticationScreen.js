@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {
   Image,
   ImageBackground,
@@ -8,10 +8,7 @@ import {
   Text,
 } from 'react-native';
 import Logo from '../../assets/logo.png';
-import {
-  Context,
-  ContextProvider,
-} from '../appcontext/context';
+import {Context, ContextProvider} from '../appcontext/context';
 import Wrapper from '../shared/GeneralComponents/Wrapper';
 import Loginbg from '../../assets/loginbg.jpg';
 import Login from '../services/Authentication/components/Login';
@@ -30,38 +27,38 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={Loginbg} style={styles.image}>
-        <Image source={Logo} style={styles.logo} />
-        <View style={styles.veiwcontainer}>
-          <TouchableOpacity
-            onPress={() => {
-              setVeiwlogin(true);
-            }}>
-            {veiwlogin ? (
-              <Text style={styles.text}>Login</Text>
-            ) : (
-                <Text style={styles.fade}>Login</Text>
-              )}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              setVeiwlogin(false);
-            }}>
-            {!veiwlogin ? (
-              <Text style={styles.text}>SignUp</Text>
-            ) : (
-                <Text style={styles.fade}>SignUp</Text>
-              )}
-          </TouchableOpacity>
-        </View>
-        {veiwlogin ? <Login /> : <SignUp />}
+      {/* <ImageBackground source={Loginbg} style={styles.image}> */}
+      <Image source={Logo} style={styles.logo} />
+      <View style={styles.veiwcontainer}>
         <TouchableOpacity
           onPress={() => {
-            setState({ isLoggedIn: true });
+            setVeiwlogin(true);
           }}>
-          <Text style={styles.skip}>Skip For Login?</Text>
+          {veiwlogin ? (
+            <Text style={styles.text}>Login</Text>
+          ) : (
+            <Text style={styles.fade}>Login</Text>
+          )}
         </TouchableOpacity>
-      </ImageBackground>
+        <TouchableOpacity
+          onPress={() => {
+            setVeiwlogin(false);
+          }}>
+          {!veiwlogin ? (
+            <Text style={styles.text}>SignUp</Text>
+          ) : (
+            <Text style={styles.fade}>SignUp</Text>
+          )}
+        </TouchableOpacity>
+      </View>
+      {veiwlogin ? <Login /> : <SignUp />}
+      <TouchableOpacity
+        onPress={() => {
+          setState({isLoggedIn: true});
+        }}>
+        <Text style={styles.skip}>Skip For Login?</Text>
+      </TouchableOpacity>
+      {/* </ImageBackground> */}
     </View>
   );
 };
@@ -87,7 +84,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Kufam-SemiBoldItalic',
     fontSize: 22,
     marginBottom: 10,
-    color: '#fff',
+    color: '#333',
   },
   veiwcontainer: {
     display: 'flex',
@@ -96,7 +93,7 @@ const styles = StyleSheet.create({
   },
   skip: {
     marginTop: 50,
-    color: '#fff',
+    color: '#333',
     fontSize: 16,
     alignSelf: 'center',
   },
