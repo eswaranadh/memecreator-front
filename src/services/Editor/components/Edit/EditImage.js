@@ -6,6 +6,7 @@ import {Context} from '../../../../appcontext/context';
 import Draggable from 'react-native-draggable';
 import ViewShot from 'react-native-view-shot';
 import RNFetchBlob from 'rn-fetch-blob';
+import CameraRoll from '@react-native-community/cameraroll';
 
 import PreviewImageStyles from '../../styles/PreviewImageStyles';
 
@@ -14,7 +15,8 @@ export default class EditImage extends Component {
   capturePic = () => {
     this.refs.viewShot.capture().then((uri) => {
       console.log('Path to the image: ', uri); // do what you want with the url
-      this.downloadImage(uri);
+      // this.downloadImage(uri);
+      const image = CameraRoll.save(uri, 'photo');
     });
   };
 
@@ -109,10 +111,7 @@ export default class EditImage extends Component {
             );
           })}
         </ViewShot>
-        {/* <Button
-          title="download"
-          onPress={this.capturePic}
-        /> */}
+        <Button title="download" onPress={this.capturePic} />
       </View>
     );
   }
